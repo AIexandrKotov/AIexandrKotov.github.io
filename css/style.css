@@ -90,3 +90,11 @@ footer{
 main{
     margin: 0% 10%;
 }
+@media screen and (max-width: 980px){
+    img{
+        width: 100%;
+    }
+    main{
+        margin: 0%;
+    }
+}
