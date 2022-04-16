@@ -28,9 +28,6 @@ footer a{
     margin-bottom: 2px;
 }
 .menu-other{
-    border: #CC0066 3px solid;
-    border-width: 0px;
-    border-bottom-width: 3px;
     background-color: #ffffff;
     padding-left: 6px;
     padding-right: 6px;
@@ -38,14 +35,11 @@ footer a{
     padding-bottom: 3px;
 }
 .menu-current{
-    border: #CC0066 3px solid;
-    border-width: 0px;
-    padding-top: 1px;
     background-color: #CC0066;
     padding-left: 6px;
     padding-right: 6px;
-    padding-top: 6px;
-    padding-bottom: 6px;
+    padding-top: 4px;
+    padding-bottom: 4px;
 }
 a.menu-current{
     color: white;
@@ -91,7 +85,15 @@ footer{
 main{
     margin: 0% 10%;
 }
+@media screen and (max-width: 1200px){
+    main{
+        margin: 0%;
+    }
+}
 @media screen and (max-width: 980px){
+    *{
+        font-size: 1.5rem;
+    }
     header img{
         width: 100%;
     }
