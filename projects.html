@@ -17,7 +17,7 @@
         }
         .date{
             font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-size: 0.9em;
+            font-size: 0.9rem;
         }
         a.github{
             text-decoration: none;
@@ -40,11 +40,22 @@
             background-color: #a6bbff;
             color: #000000;
         }
+        @media screen and (max-width: 980px){
+            table th, table span, table div, .refs a{
+                font-size: 0.9rem;
+            }
+            .date{
+                font-size: 0.7rem;
+            }
+            .tname{width:5%;}
+            .desc{width:40%}
+            .screen{width:55%;}
+        }
     </style>
 </head>
 <body>
     <header>
-        <img src="img/headlogo.png" alt="logo"/>
+        <a href="index.html"><img src="img/headlogo.png" alt="logo"/></a>
         <nav>
             <ul class="index-menu">
                 <li><a class="menu-other" href="index.html"><span>Главная</span></a></li>

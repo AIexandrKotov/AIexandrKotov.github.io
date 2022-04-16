@@ -25,14 +25,12 @@ footer a{
     white-space: nowrap;
     text-transform: uppercase;
     margin-top: 3px;
-    margin-bottom: 2px;
+    margin-bottom: 3px;
 }
 .menu-other{
     background-color: #ffffff;
     padding-left: 6px;
     padding-right: 6px;
-    padding-top: 3px;
-    padding-bottom: 3px;
 }
 .menu-current{
     background-color: #CC0066;
@@ -91,7 +89,7 @@ main{
     }
 }
 @media screen and (max-width: 980px){
-    *{
+    * {
         font-size: 1.5rem;
     }
     header img{
@@ -99,5 +97,8 @@ main{
     }
     main{
         margin: 0%;
+    }
+    footer{
+        position: relative;
     }
 }
