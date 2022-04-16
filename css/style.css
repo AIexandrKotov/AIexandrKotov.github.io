@@ -35,7 +35,7 @@ header{
     border-left: 0;
     border-right: 0;
     border-bottom-width: 3px;
-    border-color:rgb(255, 198, 198);
+    border-color:#ffc6c6;
 }
 footer{
     position: sticky;
@@ -47,7 +47,7 @@ footer{
     border-left: 0;
     border-right: 0;
     border-top-width: 2px;
-    border-color:rgb(255, 198, 198);
+    border-color:#ffc6c6;
 }
 main{
     margin: 0% 10%;
