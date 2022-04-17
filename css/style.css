@@ -80,6 +80,12 @@ footer{
     border-top-width: 2px;
     border-color:#CC0066;
 }
+body{
+    margin: 0px;
+}
+header img{
+    padding-top: 4px;
+}
 main{
     margin: 0% 10%;
 }
@@ -90,7 +96,7 @@ main{
 }
 @media screen and (max-width: 980px){
     * {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
     header img{
         width: 100%;
