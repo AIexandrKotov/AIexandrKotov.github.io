@@ -1,187 +1,87 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8"/>
+    <meta charset='utf-8'>
     <title>Проекты</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="icon" href="img/biker.ico"/>
-    <link rel="stylesheet" href="css/style.css"/>
-    <style>
-        h1{text-align: center;}
-        .desc{ padding: 10px 0px;}
-        .screens{
-            padding: 10px 0px;
-        }
-        .name{
-            font-weight: bold;
-            font-size: 1.7rem;
-        }
-        .date{
-            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-size: 1.1rem;
-        }
-        a.github{
-            text-decoration: none;
-            color: #7000b1;
-            font-weight: bold;
-        }
-        a.kotov{
-            text-decoration: none;
-            color: #fc4c4c;
-            font-weight: bold;
-        }
-        .f-biker{
-            background-color: #ff4444;
-            color: #ffffff;
-        }
-        .f-other{
-            background-color: #a6bbff;
-            color: #000000;
-        }
-        .proj-franchise{
-            padding: 5px 2px;
-            margin: 10px 0px;
-            text-align: center;
-            font-weight: bold;
-        }
-        .screens img{
-            width: 33%;
-        }
-        .proj-name{
-            border-bottom: solid 1px black;
-            padding-bottom: 3px;
-            margin-bottom: 0.5em;
-        }
-        .proj-title{
-            padding: 5px 10px;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #CC0066;
-        }
-        main{
-            margin: 0% 20%;
-        }
-        @media screen and (max-width: 980px){
-            main{
-                margin: 0% 0%;
-            }
-            .date{
-                font-size: 1rem;
-            }
-            .name{
-                font-size: 1.6rem;
-            }
-            .desc{
-                font-size: 1.3rem;
-            }
-            .screens img{
-                margin-left: 13%;
-                margin-right: 13%;
-                width: 74%;
-            }
-        }
-    </style>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
 </head>
 <body>
     <header>
-        <a href="index.html"><img src="img/headlogo.png" alt="logo"/></a>
-        <nav>
-            <ul class="index-menu">
-                <li><a class="menu-other" href="index.html"><span>Главная</span></a></li>
-                <li><a class="menu-current" href="projects.html"><span>Проекты</span></a></li>
+        <nav class="headmenu-nav">
+            <a href="index.html"><img class="headmenu-image" src="img/headlogo.png" alt="logo"/></a>
+            <ul class="headmenu-list">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="projects.html">Проекты</a></li>
+                <li><a href="archive/archive.html">Архив</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
             </ul>
         </nav>
     </header>
-    <main>
-        <h1>Список моих проектов</h1>
-        <div class="proj-franchise f-biker">
-            <span class="franchise">Biker Franchise</span>
-        </div>
-
-        <div class="proj-title">
-            <div class="proj-name"><span class="name">Biker 3</span><span class="date"> (28.11.2018 - actual)</span></div>
-            <span class="desc">Приключенческая ролевая игра в консольном интерфейсе</span>
-            <div class="screens">
-                <img src="img/biker3.png" alt="Скриншот"/>
-            </div>
-            <div class="refs">
-                <a class="kotov" href="biker3/main.html">kotov</a>
+    <main class="container">
+        <h1 style="visibility: hidden; height: 0;">Список проектов</h1>
+        <div class="projects-row">
+            <div class="projects-head franchise-biker3">
+                <h2>Франшиза Biker</h2>
+                <span>Серия игр в консольном интерфейсе. </span>
             </div>
         </div>
-
-        <div class="proj-title">
-            <div class="proj-name"><span class="name">Biker 2</span><span class="date"> (18.06.2018 - 20.03.2019)</span></div>
-            <span class="desc">Нет описания</span>
-            <div class="screens">
-                <img src="img/biker2.png" alt="Скриншот"/>
-            </div>
-            <div class="refs">
-                <a class="github" href="https://github.com/AIexandrKotov/Biker-2">github.com</a>
+        <div class="projects-row">
+            <a href="archive/biker3.html" class="projects-cell ">
+                <h2>Biker 3</h2>
+                <span>Приключенческая ролевая игра в консольном интерфейсе</span>
+                <img src="img/biker3.png" class="projects-screens-2" alt="Скриншот"/>
+                <img src="img/biker3-2.png" class="projects-screens-2" alt="Скриншот"/>
+            </a>
+        </div>
+        <div class="projects-row">
+            <a class="projects-cell projects-cols-3">
+                <h2>Biker 2</h2>
+                <span>Предшественник Biker 3</span>
+                <img src="img/biker2.png" class="projects-screens-1" alt="Скриншот"/>
+            </a>
+            <a class="projects-cell projects-cols-3">
+                <h2>Biker 1</h2>
+                <span>Попытка написать игру номер 10</span>
+                <img src="img/biker1.png" class="projects-screens-1" alt="Скриншот"/>
+            </a>
+            <a class="projects-cell projects-cols-3">
+                <h2>Biker 0</h2>
+                <span>Моя первая игра</span>
+                <img src="img/biker0.png" class="projects-screens-1" alt="Скриншот"/>
+            </a>
+        </div>
+        <div class="projects-row">
+            <div class="projects-head franchise-others">
+                <h2>Другие</h2>
+                <span>Мои проекты, которые нельзя сгруппировать под что-то одно</span>
             </div>
         </div>
-
-        <div class="proj-title">
-            <div class="proj-name"><span class="name">Biker 1</span><span class="date"> (17.10.2017 - 23.10.2017)</span></div>
-            <span class="desc">Нет описания</span>
-            <div class="screens">
-                <img src="img/biker1.png" alt="Скриншот"/>
-            </div>
-            <div class="refs">
-                <a class="github" href="https://github.com/AIexandrKotov/Biker-1">github.com</a>
-            </div>
+        <div class="projects-row">
+            <a class="projects-cell projects-cols-1">
+                <h2>KTX</h2>
+                <span>Библиотека для консольной оболочки. Ключевая фича - конвертация изображений в консольный текст</span>
+                <img src="img/ktx.png" class="projects-screens-1-big" alt="Скриншот"/>
+            </a>
         </div>
-
-        <div class="proj-title">
-            <div class="proj-name"><span class="name">Biker</span><span class="date"> (21.08.2017 - 24.08.2017)</span></div>
-            <span class="desc">Нет описания</span>
-            <div class="screens">
-                <img src="img/biker0.png" alt="Скриншот"/>
-            </div>
-            <div class="refs">
-                <a class="github" href="https://github.com/AIexandrKotov/Biker-0">github.com</a>
-            </div>
-        </div>
-
-        <div class="proj-franchise f-other">
-            <span class="franchise">Прочие</span>
-        </div>
-
-        <div class="proj-title">
-            <div class="proj-name"><span class="name">KTX</span><span class="date"> (30.12.2018 - support)</span></div>
-            <span class="desc">Первая серьезная попытка написать библиотеку, которая бы сильно помогала при разработке консольного интерфейса. Впрочем, впоследствии я сделал более серьёзную библиотеку KTXCore. Однако, в KTX всё ещё есть неоспоримо огромный плюс - возможность конвертации картинок в консольные символы. Когда-нибудь я сделаю простеньку оболочку для этой библиотеки. Когда-нибудь.</span>
-            <div class="screens">
-                <img src="img/ktx.png" alt="Скриншот"/>
-            </div>
-            <div class="refs">
-                <a class="github" href="https://github.com/AIexandrKotov/KTX">github.com</a>
-            </div>
-        </div>
-
-        <div class="proj-title">
-            <div class="proj-name"><span class="name">Tropegen</span><span class="date"> (15.06.2021 - 22.06.2021)</span></div>
-            <span class="desc">Программа-генератор персонажей с возможностью редактирования их характеристик. Этакая утилита-помощник писателю. Возможность переключения между списками персонажами, автоматическое сохранение этих списков на жесткий диск.</span>
-            <div class="screens">
-                <img src="img/tropegen.png" alt="Скриншот"/>
-            </div>
-            <div class="refs">
-                <a class="github" href="https://github.com/AIexandrKotov/Tropegen">github.com</a>
-            </div>
-        </div>
-
-        <div class="proj-title">
-            <div class="proj-name"><span class="name">Sunko</span><span class="date"> (17.08.2019 - 09.12.2019)</span></div>
-            <span class="desc">Одна из нарастающих попыток написать свой язык. Лучше предыдущих, но хуже последующих реализаций. Лучшую реализацию смотрите Язык квестов Biker 3</span>
-            <div class="screens">
-                <img src="img/sunko.png" alt="Скриншот"/>
-            </div>
-            <div class="refs">
-                <a class="github" href="https://github.com/kotov-projects/Sunko">github.com</a>
-            </div>
+        <div class="projects-row">
+            <a class="projects-cell projects-cols-2">
+                <h2>Tropegen</h2>
+                <span>Генератор случайных персонажей</span>
+                <img src="img/tropegen.png" class="projects-screens-1" alt="Скриншот"/>
+            </a>
+            <a class="projects-cell projects-cols-2">
+                <h2>Sunko</h2>
+                <span>Скриптовый язык</span>
+                <img src="img/sunko.png" class="projects-screens-1" alt="Скриншот"/>
+            </a>
         </div>
     </main>
-    <footer>
-        <ul class="footer-list">
-            <li><a href="https://vk.com/id219453333"><span>vk.com</span></a></li>
-            <li><a href="https://github.com/AIexandrKotov"><span>github.com</span></a></li>
-        </ul>
+    <footer class="footinfo">
+        <div class="container">
+            <span><a class="footinfo-ref ref-github" href="https://github.com/AIexandrKotov/AIexandrKotov.github.io">github.com</a> Александр Котов 2022</span>
+        </div>
     </footer>
 </body>
 </html>
