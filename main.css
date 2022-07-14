@@ -116,6 +116,7 @@ a:hover{
     margin-top: 5px;
     margin-bottom: 10px;
     text-indent: 10px;
+    overflow: hidden;
 }
 .archive h3{
     margin-left: 15px;
@@ -124,7 +125,7 @@ a:hover{
     margin: 15px;
     width: fit-content;
     padding: 5px 10px;
-    border: 1px solid black;
+    border: 1px solid #ff7aad;
     background-color: #ffeaf8;
     list-style-type: none;
 }
@@ -142,10 +143,165 @@ a:hover{
     padding-left: 50px;
 }
 .archive .h2{
-    padding-left: 10px;
+    padding-left: 0px;
 }
 .archive .h3{
-    padding-left: 15px;
+    padding-left: 0px;
+}
+
+.archive ul{
+    padding-left: 40px;
+}
+
+.archive .table td {
+    border: 1px solid #ff7aad;
+    border-collapse: collapse;
+    padding: 3px;
+}
+.archive .table th {
+    background-color: #ffeaf8;
+    border: 1px solid #ff7aad;
+    border-collapse: collapse;
+    padding: 3px;
+}
+.archive .table {
+    border: 1px solid #ff7aad;
+    border-collapse: collapse;
+    padding: 3px;
+}
+
+.archive div.textbox {
+    padding: 5px;
+    border: 1px solid #ff7aad;
+    background-color: #ffeaf8;
+    list-style-type: none;
+    margin: 3px;
+}
+
+.archive div.textbox pre {
+    display: block;
+    font-size: 90%;
+    background-color: white;
+    border: 1px solid #ff7aad;
+    padding: 5px;
+    margin: 0px;
+    margin-bottom: 3px;
+}
+.archive div.textbox span{ /*--- TEXT UNDER ---*/
+    display: block;
+    font-size: 90%;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+}
+
+.archive div.images {
+    display: flex;
+}
+
+.archive div.images div.imagebox{
+    display: table-cell;
+    margin: 3px;
+    height: min-content;
+    width: 100%;
+    flex: content;
+}
+.archive div.images div.imagebox img{
+    width: 100%;
+}
+
+.archive div.imagebox {
+    width: 23em;
+    padding: 5px;
+    border: 1px solid #ff7aad;
+    background-color: #ffeaf8;
+    list-style-type: none;
+    margin: 3px;
+}
+.archive div.imagebox img{
+    width: 100%;
+    border: 1px solid #ff7aad;
+}
+.archive div.imagebox img.no-borders{
+    border: 0px none black;
+}
+.archive div.imagebox span{ /*--- TEXT UNDER ---*/
+    display: block;
+    font-size: 90%;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+}
+.archive div.imagebox.floatimage-after{
+    margin: 0;
+    margin-left: 5px;
+}
+
+.archive table.infobox {
+    margin-bottom: 10px;
+    margin-left: 10px;
+    padding: 5px 3px;
+    border: 1px solid #ff7aad;
+    background-color: #ffeaf8;
+    list-style-type: none;
+    text-align: left;
+    float: right;
+    clear: right;
+    border-collapse: separate;
+    width: 23em;
+}
+.archive table.infobox tr {
+    display: table-row;
+}
+.archive table.infobox tr * {
+    display: table-cell;
+    font-size: 90%;
+    padding: 1px;
+}
+.archive table.infobox tr b {
+    display: inline;
+}
+.archive table.infobox tr br {
+    border: 1px solid #ff7aad;
+    margin: 5px 0;
+}
+.archive table.infobox tr.description { /*--- TEXT UNDER ---*/
+    text-align: center;
+    font-size: 90%;
+    color: black;
+    font-weight: bold;
+}
+.archive table.infobox tr.text {
+    text-align: center;
+}
+.archive table.infobox tr.image {
+    text-align: center;
+}
+.archive table.infobox tr.image td {
+    padding: 0px;
+}
+.archive table.infobox tr.image img {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 3px;
+    border: 1px solid #ff7aad;
+    padding: 0px;
+}
+.archive table.infobox tr.image img.no-borders{
+    border: 0px none black;
+}
+.archive table.infobox tr.maintitle th{
+    font-size: 120%;
+    background-color: #ff7aad;
+    padding: 2px 0px;
+    width: 100%;
+    text-align: center;
+}
+.archive table.infobox tr.title th{
+    background-color: #ff7aad;
+    padding: 1px;
+    width: 100%;
+    text-align: center;
 }
 
 /*project*/
@@ -229,8 +385,22 @@ img.projects-screens-3{
     .container{
         width: 100%;
     }
+    .archive table.infobox, .archive div.imagebox{
+        float: none;
+        width: 100%;
+        margin: 0 auto;
+    }
 }
 @media screen and (max-width: 980px) {
+    .archive div.images, .archive div.images div.imagebox{
+        display: block;
+        margin: 5px 0;
+    }
+    .archive table.infobox, .archive div.imagebox{
+        float: none;
+        width: 100%;
+        margin: 0 auto;
+    }
     .container{
         width: 100%;
     }
