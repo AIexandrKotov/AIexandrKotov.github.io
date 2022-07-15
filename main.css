@@ -176,9 +176,10 @@ a:hover{
     background-color: #ffeaf8;
     list-style-type: none;
     margin: 3px;
+    overflow: hidden;
 }
 
-.archive div.textbox pre {
+.archive div.textbox div, .archive div.textbox code {
     display: block;
     font-size: 90%;
     background-color: white;
@@ -186,14 +187,55 @@ a:hover{
     padding: 5px;
     margin: 0px;
     margin-bottom: 3px;
+    overflow-y: scroll;
+    max-height: 40em;
 }
-.archive div.textbox span{ /*--- TEXT UNDER ---*/
+.archive div.textbox span.description{ /*--- TEXT UNDER ---*/
     display: block;
     font-size: 90%;
     color: black;
     text-align: center;
     font-weight: bold;
 }
+
+/* BQS-CODE */
+.archive .bqs-code *{
+    font-family: monospace;
+    font-size: 14px;
+}
+.bqs-code .bqs-comment{
+    color: #808080;
+}
+.bqs-code .bqs-digit{
+    color: #008000;
+}
+.bqs-code .bqs-keyword1, .bqs-code .bqs-bool, .bqs-code .bqs-type{
+    color: #0000FF;
+}
+.bqs-code .bqs-specname{
+    color: #008080;
+}
+.bqs-code .bqs-keyword2{
+    color: #800080;
+}
+.bqs-code .bqs-string{
+    color: #C10000;
+}
+.bqs-code .bqs-specmethodcall{
+    color: #FF0080;
+}
+.bqs-code ol{
+    list-style-type: decimal;
+    padding-left: 50px;
+    display: block;
+    background-color: #fff2fb;
+}
+.bqs-code li{
+    display: list-item;
+    background-color: white;
+    padding-left: 10px;
+}
+/* BQS-CODE */
 
 .archive div.images {
     display: flex;
@@ -217,6 +259,7 @@ a:hover{
     background-color: #ffeaf8;
     list-style-type: none;
     margin: 3px;
+    overflow: hidden;
 }
 .archive div.imagebox img{
     width: 100%;

@@ -1,0 +1,101 @@
+class #Player
+{
+    /// Добавляет exp опыта игроку
+    void AddExp(int exp);
+    /// Добавляет процент от размера шкалы опыта игроку
+    void AddExp(double percent);
+}
+class #Debug
+{
+    /// Добавляет строку в файл ktxcore.log
+    independent void Log(string s);
+    /// Добавляет строковое представление объекта в файл ktxcore.log
+    independent void Log(object o);
+}
+class #Array
+{
+    /// Возвращает длину любого массива
+    independent int get_Length(object[] a);
+    /// Создаёт массив объектов из count элементов типа type
+    independent System.Array Of(string type, int count);
+    /// Создаёт массив объектов из count элементов типа type
+    independent System.Array Of(System.Type type, int count);
+}
+class #Tuple
+{
+    /// Возвращает первый элемент кортежа
+    independent object Item1(System.Runtime.CompilerServices.ITuple tuple);
+    /// Возвращает второй элемент кортежа
+    independent object Item2(System.Runtime.CompilerServices.ITuple tuple);
+    /// Возвращает третий элемент кортежа
+    independent object Item3(System.Runtime.CompilerServices.ITuple tuple);
+    /// Возвращает четвёртый элемент кортежа
+    independent object Item4(System.Runtime.CompilerServices.ITuple tuple);
+    /// Возвращает пятый элемент кортежа
+    independent object Item5(System.Runtime.CompilerServices.ITuple tuple);
+    /// Возвращает шестой элемент кортежа
+    independent object Item6(System.Runtime.CompilerServices.ITuple tuple);
+    /// Возвращает седьмой элемент кортежа
+    independent object Item7(System.Runtime.CompilerServices.ITuple tuple);
+    /// Создаёт кортеж из одного элемента
+    independent System.Tuple<object> Pack(object o1);
+    /// Создаёт кортеж из двух элементов
+    independent System.Tuple<object, object> Pack(object o1, object o2);
+    /// Создаёт кортеж из трёх элементов
+    independent System.Tuple<object, object, object> Pack(object o1, object o2, object o3);
+    /// Создаёт кортеж из четырёх элементов
+    independent System.Tuple<object, object, object, object> Pack(object o1, object o2, object o3, object o4);
+    /// Создаёт кортеж из пяти элементов
+    independent System.Tuple<object, object, object, object, object> Pack(object o1, object o2, object o3, object o4, object o5);
+    /// Создаёт кортеж из шести элементов
+    independent System.Tuple<object, object, object, object, object, object> Pack(object o1, object o2, object o3, object o4, object o5, object o6);
+    /// Создаёт кортеж из семи элементов
+    independent System.Tuple<object, object, object, object, object, object, object> Pack(object o1, object o2, object o3, object o4, object o5, object o6, object o7);
+    /// Распаковывает элементы кортежа в lvalue лексемы.
+    void Unpack(System.Tuple<object> tuple, ##lexem nl1);
+    /// Распаковывает элементы кортежа в lvalue лексемы.
+    void Unpack(System.Tuple<object, object> tuple, ##lexem nl1, ##lexem nl2);
+    /// Распаковывает элементы кортежа в lvalue лексемы.
+    void Unpack(System.Tuple<object, object, object> tuple, ##lexem nl1, ##lexem nl2, ##lexem nl3);
+    /// Распаковывает элементы кортежа в lvalue лексемы.
+    void Unpack(System.Tuple<object, object, object, object> tuple, ##lexem nl1, ##lexem nl2, ##lexem nl3, ##lexem nl4);
+    /// Распаковывает элементы кортежа в lvalue лексемы.
+    void Unpack(System.Tuple<object, object, object, object, object> tuple, ##lexem nl1, ##lexem nl2, ##lexem nl3, ##lexem nl4, ##lexem nl5);
+    /// Распаковывает элементы кортежа в lvalue лексемы.
+    void Unpack(System.Tuple<object, object, object, object, object, object> tuple, ##lexem nl1, ##lexem nl2, ##lexem nl3, ##lexem nl4, ##lexem nl5, ##lexem nl6);
+    /// Распаковывает элементы кортежа в lvalue лексемы.
+    void Unpack(System.Tuple<object, object, object, object, object, object, object> tuple, ##lexem nl1, ##lexem nl2, ##lexem nl3, ##lexem nl4, ##lexem nl5, ##lexem nl6, ##lexem nl7);
+}
+class #BQS
+{
+    /// Возвращает версию ревизии игры
+    independent int GetVersion();
+    /// Загружает внешнюю сборку в BQS
+    independent void LoadAssembly(string s);
+    /// Возвращает значение определяющее существование метода
+    bool MethodAvailable(string methodname);
+    /// Запускает блок KTXCore исходя из текущего контекста
+    void StartUI(KTXCore.Block ui);
+}
+class #Type
+{
+    /// Возвращает тип с заданным именем
+    independent System.Type Typeof(string name);
+    /// Загружает все типы из подключенных сборок в контекст выполнения
+    void LoadAll();
+    /// Загружает все типы из этого пространства имён в контекст выполнения
+    void LoadAll(string ns);
+    /// Загружает тип в контекст выполнения, где он будет иметь имя name
+    void LoadAs(string typename, string name);
+    /// Загружает тип в контекст выполнения, где он будет иметь имя name
+    void LoadAs(System.Type type, string name);
+    /// Загружает тип в контекст выполнения. Имена загруженных типов начинаются с #
+    void Load(string typename);
+    /// Загружает тип в контекст выполнения
+    void Load(System.Type type);
+}
+class #Global
+{
+    /// Возвращает значение, определяющее статус обучения для новых игр
+    independent bool TutorialEnabled();
+}

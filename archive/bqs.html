@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset='utf-8'>
+    <title>Biker Quest Script</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="icon" href="../img/biker.ico"/>
+    <link rel='stylesheet' type='text/css' media='screen' href='../main.css'>
+</head>
+<body>
+    <header>
+        <nav class="headmenu-nav">
+            <a href="../index.html"><img class="headmenu-image" src="../img/headlogo.png" alt="logo"/></a>
+            <ul class="headmenu-list">
+                <li><a href="../index.html">Главная</a></li>
+                <li><a href="../projects.html">Проекты</a></li>
+                <li><a href="archive.html">Архив</a></li>
+                <li><a href="../contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <div class="archive">
+            <h1>Biker Quest Script</h1>
+                <table class="infobox">
+                    <tbody>
+                        <tr class="maintitle"><th colspan="2">Biker Quest Script</th></tr>
+                        <!--tr class="image"><td colspan="2"><img class="no-borders" src="../img/ktx.png" alt="KTX"></td></tr>
+                        <tr class="description"><td colspan="2">Результат выполнения</td></tr-->
+                        <tr class="title"><th colspan="2">Разработка</th></tr>
+                        <tr>
+                            <th>Написан на</th>
+                            <td>C#</td>
+                        </tr>
+                        <tr>
+                            <th>Платформы</th>
+                            <td>Windows</td>
+                        </tr>
+                        <tr class="title"><th colspan="2">Статистика</th></tr>
+                        <tr>
+                            <th>Строк кода</th>
+                            <td>.cs: 21353</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="h1"><strong>Biker Quest Script</strong> &mdash; скриптовый язык квестов (и не только) в Biker 3. Синтаксис схож с C#, на котором и написан этот язык.
+                <ol class="archive-nav">
+                    <li class="archive-nav-h1">Навигация:</li>
+                    <li class="archive-nav-h2"><a href="#a0">Почему не Lua, Python и прочие</a></li>
+                    <li class="archive-nav-h2"><a href="#a1">Спецификация</a></li>
+                    <li class="archive-nav-h2"><a href="#a2">Методы Biker 3</a></li>
+                    <li class="archive-nav-h2"><a href="#arefs">Ссылки</a></li>
+                </ol>
+                <h2 id="a0">Почему не Lua, Python и прочие</h2>
+                <div class="h2">Ответ на самом деле прост &mdash; собственный язык позволяет создавать свои абстракции и свой сахар. Кроме того, BQS будучи привязанным к .NET, позволяет использовать методы Biker 3, которые можно писать непосредственно на C#, не плодя дополнительный код.</div>
+                <h2 id="a1">Спецификация</h2>
+                <p class="h2"></p>
+                <div class="textbox floatimage-after"><div class="bqs-code"><ol>
+                    <li class="bqs-line">
+                    <span class="bqs-comment">//Парсер языка однострочный. Одна строка - один оператор.</span>
+                    </li>
+                    <li class="bqs-line">
+                    <span class="bqs-comment">//Комментарии только однострочные</span>
+                    </li>
+                    <li class="bqs-line">
+                    <span class="bqs-comment">//У языка огромная схожесть с языком C#</span>
+                    </li>
+                    <li class="bqs-line">
+                    <span class="bqs-keyword1">class </span><span class="bqs-name">ClassName</span>
+                    </li>
+                    <li class="bqs-line">
+                    <span class="bqs-operator">{</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Классы условны. В языке нет ООП вообще. В языке даже структур нет!</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Но если очень хочется можно написать свою C#-библиотеку и подключить её</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Значение константы хранится в дереве.</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">const </span><span class="bqs-type">int </span> <span class="bqs-name">maxprice</span><span class="bqs-operator"> = </span><span class="bqs-digit">300</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Значение переменной хранится в сохранении. При доступе к переменной вне контекста игры, она вернёт своё значение по умолчанию.</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//переменные должны всегда быть сериализумого типа</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//в качестве значения может использоваться вызов любых значений, для которых не нужен контекст игры</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//в том числе вызов метода в том случае если для него не нужен контекст игры.</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">var </span><span class="bqs-type">int </span> <span class="bqs-name">price</span><span class="bqs-operator"> = </span><span class="bqs-digit">200</span>
+                    </li>
+                    <li class="bqs-line">
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Метод. Ключевое отличие от старого языка квестов. Строгости в обязательности возвращения значений нет.</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Возвращаемый тип может быть любой абсолютно. Внутренне void это object, имейте это ввиду.</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">void </span><span class="bqs-methodcall">Method</span>()
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-operator">{</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Объявление переменной</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Точка с запятой в конце оператора не обязательна</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">var </span><span class="bqs-name">x</span><span class="bqs-operator"> = </span><span class="bqs-digit">0</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Также переменная объявляется при присваивании, если её не существует:</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-name">xx</span><span class="bqs-operator"> = </span><span class="bqs-digit">0</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Однако не стоит использовать эту возможность без необходимости.</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-operator">{</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Объявленные переменные пропадают после конца области действия их объявления</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Если они заменили переменную, то она не вернётся назад!</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">var </span><span class="bqs-name">x</span><span class="bqs-operator"> = </span><span class="bqs-digit">0</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">var </span><span class="bqs-name">xx</span><span class="bqs-operator"> = </span><span class="bqs-digit">0</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-operator">}</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Теперь обеих этих переменных не существует.</span>
+                    </li>
+                    <li class="bqs-line">
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Присваивание переменных:</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-name">x</span><span class="bqs-operator"> = </span><span class="bqs-digit">1</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Расширенное присваивание:</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-name">x</span><span class="bqs-operator"> += </span><span class="bqs-digit">1</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-name">x</span><span class="bqs-operator"> -= </span><span class="bqs-digit">1</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-name">x</span><span class="bqs-operator"> *= </span><span class="bqs-digit">1</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-name">x</span><span class="bqs-operator"> /= </span><span class="bqs-digit">1</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-name">x</span><span class="bqs-operator"> %= </span><span class="bqs-digit">1</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-name">x</span><span class="bqs-operator"> |= </span><span class="bqs-digit">1</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-name">x</span><span class="bqs-operator"> &= </span><span class="bqs-digit">1</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-name">x</span><span class="bqs-operator"> ^= </span><span class="bqs-digit">1</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Операций инкремента и декремента нет. Используйте += для ++x.</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Все операции являются утверждениеями, а значит их можно писать просто так:</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-digit">1</span><span class="bqs-operator"> + </span><span class="bqs-digit">2</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Каждая операция имеет свой приоритет (даже - над +). Имейте это ввиду.</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Порядок приоритета по возрастанию:</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//"=", "+=", "-=", "*=", "/=", "%=", "&=", "|=", "^=", "&&", "||", "&", "|", "^",</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//"is", "==", "!=", "&gt;", "&gt;=", "&lt;", "&lt;=", "&gt;&gt;", "&lt;&lt;", "+", "-", "*", "/", "%", "!", "~"</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Операции составляются из отдельных символов, так что a + = 1 страктуется как a += 1!</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Тернарная операция имеет минимальный приоритет</span>
+                    </li>
+                    <li class="bqs-line">
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Выражения имеют возвращаемый тип. Требуемы возвращаемый тип зависит от конструкции.</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-methodcall">#Debug.Log</span>(<span class="bqs-digit">1</span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">var </span><span class="bqs-name">a1</span><span class="bqs-operator"> = </span><span class="bqs-name">x</span><span class="bqs-operator"> + </span><span class="bqs-name">x</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">var </span><span class="bqs-name">b1</span><span class="bqs-operator"> = </span><span class="bqs-digit">0.1</span><span class="bqs-operator"> + </span><span class="bqs-name">a1</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">var </span><span class="bqs-name">c1</span><span class="bqs-operator"> = </span>(<span class="bqs-type">long </span>)<span class="bqs-name">x</span>
+                    </li>
+                    <li class="bqs-line">
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword2">if </span>(<span class="bqs-name">a1</span><span class="bqs-operator"> is </span><span class="bqs-type">int </span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-operator">{</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">var </span><span class="bqs-name">b</span><span class="bqs-operator"> = </span>a<span class="bqs-keyword1"> is </span><span class="bqs-type">int </span> <span class="bqs-name">a1</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-methodcall">#Debug.Log</span>(<span class="bqs-name">a</span> <span class="bqs-operator"> is </span> <span class="bqs-type">int </span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-operator">}</span>
+                    </li>
+                    <li class="bqs-line">
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Старайтесь не переопределять существующие в контексте переменные. Если вы измените глубину их объявления, вы можете запутать самих себя.</span>
+                    </li>
+                    <li class="bqs-line">
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Операторы:</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Блок:</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-operator">{</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-operator">}</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Цикл while:</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword2">while </span>(<span class="bqs-bool">false</span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-operator">{</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-operator">}</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Или краткая версия:</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword2">while </span>(<span class="bqs-bool">false</span>)<span class="bqs-keyword1">null</span>
+                    </li>
+                    <li class="bqs-line">
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Цикл do-while:</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword2">do </span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-operator">{</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-operator">}</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword2">while </span>(<span class="bqs-bool">false</span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Краткой версии не существует</span>
+                    </li>
+                    <li class="bqs-line">
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Цикл loop:</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword2">loop </span>(<span class="bqs-digit">1</span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-operator">{</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-operator">}</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Краткая версия:</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword2">loop </span>(<span class="bqs-digit">1</span>)<span class="bqs-keyword1">null</span>
+                    </li>
+                    <li class="bqs-line">
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Цикл for:</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//for ([&lt;Statement&gt;]; [&lt;Expression&gt;]; [&lt;Statement&gt;]) [&lt;Statement&gt;];</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword2">for </span>(<span class="bqs-keyword1">var </span><span class="bqs-name">i</span><span class="bqs-operator"> = </span><span class="bqs-digit">0</span><span class="bqs-operator"> ; </span><span class="bqs-name">i</span><span class="bqs-operator"> &lt; </span><span class="bqs-digit">1</span><span class="bqs-operator"> ; </span><span class="bqs-name">i</span><span class="bqs-operator"> += </span><span class="bqs-digit">1</span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-operator">{</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword2">continue </span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword2">break </span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword2">for </span>(<span class="bqs-operator"> ; </span>)<span class="bqs-keyword1">null</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-operator">}</span>
+                    </li>
+                    <li class="bqs-line">
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Условный оператор (краткие версии):</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword2">if </span>(<span class="bqs-bool">true</span>)<span class="bqs-methodcall">Log.Add</span>(<span class="bqs-digit">1</span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//else if отдельная конструкция</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword2">else </span><span class="bqs-keyword2">if </span>(<span class="bqs-bool">true</span>)<span class="bqs-methodcall">Log.Add</span>(<span class="bqs-digit">2</span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword2">else </span><span class="bqs-methodcall">Log.Add</span>(<span class="bqs-digit">0</span>)
+                    </li>
+                    <li class="bqs-line">
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Несколько операторов на одной строке:</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">var </span><span class="bqs-name">a</span><span class="bqs-operator"> = </span><span class="bqs-digit">0</span><span class="bqs-operator"> ; </span><span class="bqs-keyword1">var </span><span class="bqs-name">b</span><span class="bqs-operator"> = </span><span class="bqs-digit">0</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Доступны во всех операторах (но недоступны как возвращающее значение краткого метода)</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword2">while </span>(<span class="bqs-name">a</span><span class="bqs-operator"> + </span><span class="bqs-name">b</span><span class="bqs-operator"> &lt; </span><span class="bqs-digit">4</span>)<span class="bqs-name">a</span><span class="bqs-operator"> += </span><span class="bqs-digit">1</span><span class="bqs-operator"> ; </span><span class="bqs-name">b</span><span class="bqs-operator"> += </span><span class="bqs-digit">1</span>
+                    </li>
+                    <li class="bqs-line">
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Интерполированные строки:</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-type">string </span> <span class="bqs-name">s</span><span class="bqs-operator"> = </span><span class="bqs-unknown">"{a} {b}"</span><span class="bqs-operator"> ; </span><span class="bqs-methodcall">#Debug.Log</span>(<span class="bqs-name">s</span>)
+                    </li>
+                    <li class="bqs-line">
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Имена типа возвращают экземпляр System.Type</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">var </span><span class="bqs-name">t</span><span class="bqs-operator"> = </span><span class="bqs-type">string </span>
+                    </li>
+                    <li class="bqs-line">
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Обращаться к .NET-типам можно через ##</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Массивы и их инициализаторы</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">var </span><span class="bqs-name">a</span><span class="bqs-operator"> = </span><span class="bqs-unknown">new System.Type[1](string)</span>
+                    </li>
+                    <li class="bqs-line">
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-operator">{</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Использование .NET-типов:</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-methodcall">#Type.Load</span>(<span class="bqs-specname">#Type.ConsoleColor</span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//или:         (первое будет быстрее)</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-methodcall">#Type.Load</span>(<span class="bqs-type">##System.ConsoleColor </span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-methodcall">#Debug.Log</span>(<span class="bqs-specname">#ConsoleColor.Black</span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//#Type хранит полные имена типов в значених константы с которотким именем</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Ознакомьтесь со списком встроенных в Biker Quest Script методов</span>
+                    </li>
+                    <li class="bqs-line">
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Типы существуют до конца области действия, как и переменные.</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-operator">}</span>
+                    </li>
+                    <li class="bqs-line">
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Чтобы можно было загружать типы из других сборок, необходимо загрузить эту .NET-сборку</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-methodcall">#BQS.LoadAssembly</span>(<span class="bqs-string">"KTXCore.dll"</span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-operator">}</span>
+                    </li>
+                    <li class="bqs-line">
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Короткая запись метода:</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//&lt;TypeName&gt; &lt;FuncName&gt;() =&gt; &lt;Expression&gt;;</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//void &lt;FuncName&gt;() =&gt; &lt;Statement&gt;;</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-type">int </span><span class="bqs-methodcall">func_</span>()<span class="bqs-operator"> =&gt; </span><span class="bqs-digit">1</span>
+                    </li>
+                    <li class="bqs-line">
+                    <span class="bqs-operator">}</span>
+                    </li>
+                    <li class="bqs-line">
+                    </li>
+                    <li class="bqs-line">
+                    </li>
+                    <li class="bqs-line">
+                    <span class="bqs-keyword1">quest </span><span class="bqs-name">QuestName</span>
+                    </li>
+                    <li class="bqs-line">
+                    <span class="bqs-operator">{</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">title </span><span class="bqs-operator"> = </span><span class="bqs-unknown">"Title {(1+1)}"</span>
+                    </li>
+                    <li class="bqs-line">
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//access - Text(string key);</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">text </span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-operator">{</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-string">"desc1"</span><span class="bqs-operator"> = </span><span class="bqs-string">"Описание квеста в дневнике"</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-string">"desc2"</span><span class="bqs-operator"> = </span><span class="bqs-string">"Описание квеста появляющееся если выполнено условие"</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-operator">}</span>
+                    </li>
+                    <li class="bqs-line">
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">description </span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-operator">{</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">add </span><span class="bqs-string">"desc1"</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">add </span><span class="bqs-string">"desc2"</span><span class="bqs-keyword2">if </span>(<span class="bqs-bool">true</span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-operator">}</span>
+                    </li>
+                    <li class="bqs-line">
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Возвращает true если в этом контексте можно начать печать квеста</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//ui[&lt;Place&gt;] вернёт true только в случае совпадения с именем места. При любом другом значении вернёт false</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Удобно делать условия вроде a == 0 ? ui["All"] : ui["PlayerViewer"]</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-type">bool </span><span class="bqs-specmethodcall">#UIStart</span>(<span class="bqs-type">object </span> <span class="bqs-name">ui</span>)<span class="bqs-operator"> =&gt; </span><span class="bqs-name">ui</span>[<span class="bqs-string">"All"</span>]
+                    </li>
+                    <li class="bqs-line">
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Специальный метод. Вызывается при #Stage.NS (в состоянии неначатости квеста).</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Возвращает, можно ли начать выполнение квеста</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-type">bool </span><span class="bqs-specmethodcall">#Available</span>()
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-operator">{</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword2">return </span><span class="bqs-bool">true</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-operator">}</span>
+                    </li>
+                    <li class="bqs-line">
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Специальный метод. Вызывается при первом запуске квеста если #Available вернуло true.</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">void </span><span class="bqs-specmethodcall">#Start</span>()
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-operator">{</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-name">$Stage</span><span class="bqs-operator"> = </span><span class="bqs-digit">1</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-operator">}</span>
+                    </li>
+                    <li class="bqs-line">
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">stage </span>[<span class="bqs-digit">1</span>]
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-operator">{</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Special methods not access in</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-type">bool </span><span class="bqs-specmethodcall">#UIStart</span>(<span class="bqs-type">object </span> <span class="bqs-name">ui</span>)<span class="bqs-operator"> =&gt; </span><span class="bqs-name">ui</span>[<span class="bqs-string">"All"</span>]
+                    </li>
+                    <li class="bqs-line">
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Planned sugar:</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//uistart =&gt; "All" || "All";</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//to : bool #UIStart(object sugar&lt;ui&gt;) =&gt; sugar&lt;ui&gt;["All"] || sugar&lt;ui&gt;["All"];</span>
+                    </li>
+                    <li class="bqs-line">
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-type">bool </span><span class="bqs-specmethodcall">#Available</span>()<span class="bqs-operator"> =&gt; </span><span class="bqs-bool">true</span>
+                    </li>
+                    <li class="bqs-line">
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">description </span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-operator">{</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">add </span><span class="bqs-string">"Текст этой стадии"</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">add </span><span class="bqs-string">"Текст этой стадии при выполнении условия"</span><span class="bqs-keyword2">if </span>(<span class="bqs-bool">true</span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-operator">}</span>
+                    </li>
+                    <li class="bqs-line">
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">variant </span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-operator">{</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-type">string </span><span class="bqs-specmethodcall">#GetVariantText</span>()<span class="bqs-operator"> =&gt; </span><span class="bqs-string">"Текст этого варианта"</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">void </span><span class="bqs-specmethodcall">#Action</span>()<span class="bqs-operator"> =&gt; </span><span class="bqs-keyword2">return </span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-type">bool </span><span class="bqs-specmethodcall">#Available</span>()<span class="bqs-operator"> =&gt; </span><span class="bqs-bool">false</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-type">bool </span><span class="bqs-specmethodcall">#Visible</span>()<span class="bqs-operator"> =&gt; </span><span class="bqs-bool">false</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-operator">}</span>
+                    </li>
+                    <li class="bqs-line">
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//Сахарная сокращённая запись:</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//variant =&gt; &lt;Expression&gt; =&gt; &lt;Statement&gt;[ =&gt; &lt;Expression&gt;[ =&gt; &lt;Expression&gt;]];</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">//порядок =&gt; #GetVariantText =&gt; #Action =&gt; #Available =&gt; #Visible</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">variant </span><span class="bqs-operator"> =&gt; </span><span class="bqs-string">"Текст этого варианта"</span><span class="bqs-operator"> =&gt; </span><span class="bqs-keyword1">null</span><span class="bqs-operator"> ; </span><span class="bqs-operator"> =&gt; </span><span class="bqs-bool">false</span><span class="bqs-operator"> =&gt; </span><span class="bqs-bool">false</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-operator">}</span>
+                    </li>
+                    <li class="bqs-line">
+                    <span class="bqs-operator">}</span>
+                    </li>
+                    </ol></div>
+                    
+                    <span class="description"><a href="../docs/specification.bqs">RAW-версия спецификации</a></span>
+                    
+                </div>
+                <h2 id="a2">Методы Biker 3</h2>
+                <div class="textbox"><div class="bqs-code"><ol>
+                    <li class="bqs-line">
+                    <span class="bqs-keyword1">class </span><span class="bqs-specname">#Player</span>
+                    </li>
+                    <li class="bqs-line">
+                    <span class="bqs-operator">{</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">/// Добавляет exp опыта игроку</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">void </span><span class="bqs-methodcall">AddExp</span>(<span class="bqs-type">int </span> <span class="bqs-name">exp</span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">/// Добавляет процент от размера шкалы опыта игроку</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">void </span><span class="bqs-methodcall">AddExp</span>(<span class="bqs-type">double </span> <span class="bqs-name">percent</span>)
+                    </li>
+                    <li class="bqs-line">
+                    <span class="bqs-operator">}</span>
+                    </li>
+                    <li class="bqs-line">
+                    <span class="bqs-keyword1">class </span><span class="bqs-specname">#Debug</span>
+                    </li>
+                    <li class="bqs-line">
+                    <span class="bqs-operator">{</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">/// Добавляет строку в файл ktxcore.log</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">independent </span><span class="bqs-keyword1">void </span><span class="bqs-methodcall">Log</span>(<span class="bqs-type">string </span> <span class="bqs-name">s</span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">/// Добавляет строковое представление объекта в файл ktxcore.log</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">independent </span><span class="bqs-keyword1">void </span><span class="bqs-methodcall">Log</span>(<span class="bqs-type">object </span> <span class="bqs-name">o</span>)
+                    </li>
+                    <li class="bqs-line">
+                    <span class="bqs-operator">}</span>
+                    </li>
+                    <li class="bqs-line">
+                    <span class="bqs-keyword1">class </span><span class="bqs-specname">#Array</span>
+                    </li>
+                    <li class="bqs-line">
+                    <span class="bqs-operator">{</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">/// Возвращает длину любого массива</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">independent </span><span class="bqs-type">int </span><span class="bqs-methodcall">get_Length</span>(<span class="bqs-type">object </span> [] <span class="bqs-name">a</span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">/// Создаёт массив объектов из count элементов типа type</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">independent </span><span class="bqs-name">System.Array</span><span class="bqs-methodcall">Of</span>(<span class="bqs-type">string </span> <span class="bqs-name">type</span> <span class="bqs-operator">, </span> <span class="bqs-type">int </span> <span class="bqs-name">count</span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">/// Создаёт массив объектов из count элементов типа type</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">independent </span><span class="bqs-name">System.Array</span><span class="bqs-methodcall">Of</span>(<span class="bqs-type">##System.Type </span> <span class="bqs-name">type</span> <span class="bqs-operator">, </span> <span class="bqs-type">int </span> <span class="bqs-name">count</span>)
+                    </li>
+                    <li class="bqs-line">
+                    <span class="bqs-operator">}</span>
+                    </li>
+                    <li class="bqs-line">
+                    <span class="bqs-keyword1">class </span><span class="bqs-specname">#Tuple</span>
+                    </li>
+                    <li class="bqs-line">
+                    <span class="bqs-operator">{</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">/// Возвращает первый элемент кортежа</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">independent </span><span class="bqs-type">object </span><span class="bqs-methodcall">Item1</span>(<span class="bqs-type">##System.Runtime.CompilerServices.ITuple </span> <span class="bqs-name">tuple</span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">/// Возвращает второй элемент кортежа</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">independent </span><span class="bqs-type">object </span><span class="bqs-methodcall">Item2</span>(<span class="bqs-type">##System.Runtime.CompilerServices.ITuple </span> <span class="bqs-name">tuple</span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">/// Возвращает третий элемент кортежа</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">independent </span><span class="bqs-type">object </span><span class="bqs-methodcall">Item3</span>(<span class="bqs-type">##System.Runtime.CompilerServices.ITuple </span> <span class="bqs-name">tuple</span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">/// Возвращает четвёртый элемент кортежа</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">independent </span><span class="bqs-type">object </span><span class="bqs-methodcall">Item4</span>(<span class="bqs-type">##System.Runtime.CompilerServices.ITuple </span> <span class="bqs-name">tuple</span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">/// Возвращает пятый элемент кортежа</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">independent </span><span class="bqs-type">object </span><span class="bqs-methodcall">Item5</span>(<span class="bqs-type">##System.Runtime.CompilerServices.ITuple </span> <span class="bqs-name">tuple</span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">/// Возвращает шестой элемент кортежа</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">independent </span><span class="bqs-type">object </span><span class="bqs-methodcall">Item6</span>(<span class="bqs-type">##System.Runtime.CompilerServices.ITuple </span> <span class="bqs-name">tuple</span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">/// Возвращает седьмой элемент кортежа</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">independent </span><span class="bqs-type">object </span><span class="bqs-methodcall">Item7</span>(<span class="bqs-type">##System.Runtime.CompilerServices.ITuple </span> <span class="bqs-name">tuple</span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">/// Создаёт кортеж из одного элемента</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">independent </span><span class="bqs-name">System.Tuple</span><span class="bqs-operator"> &lt; </span><span class="bqs-type">object </span><span class="bqs-operator"> &gt; </span><span class="bqs-methodcall">Pack</span>(<span class="bqs-type">object </span> <span class="bqs-name">o1</span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">/// Создаёт кортеж из двух элементов</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">independent </span><span class="bqs-name">System.Tuple</span><span class="bqs-operator"> &lt; </span><span class="bqs-type">object </span><span class="bqs-operator">, </span><span class="bqs-type">object </span><span class="bqs-operator"> &gt; </span><span class="bqs-methodcall">Pack</span>(<span class="bqs-type">object </span> <span class="bqs-name">o1</span> <span class="bqs-operator">, </span> <span class="bqs-type">object </span> <span class="bqs-name">o2</span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">/// Создаёт кортеж из трёх элементов</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">independent </span><span class="bqs-name">System.Tuple</span><span class="bqs-operator"> &lt; </span><span class="bqs-type">object </span><span class="bqs-operator">, </span><span class="bqs-type">object </span><span class="bqs-operator">, </span><span class="bqs-type">object </span><span class="bqs-operator"> &gt; </span><span class="bqs-methodcall">Pack</span>(<span class="bqs-type">object </span> <span class="bqs-name">o1</span> <span class="bqs-operator">, </span> <span class="bqs-type">object </span> <span class="bqs-name">o2</span> <span class="bqs-operator">, </span> <span class="bqs-type">object </span> <span class="bqs-name">o3</span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">/// Создаёт кортеж из четырёх элементов</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">independent </span><span class="bqs-name">System.Tuple</span><span class="bqs-operator"> &lt; </span><span class="bqs-type">object </span><span class="bqs-operator">, </span><span class="bqs-type">object </span><span class="bqs-operator">, </span><span class="bqs-type">object </span><span class="bqs-operator">, </span><span class="bqs-type">object </span><span class="bqs-operator"> &gt; </span><span class="bqs-methodcall">Pack</span>(<span class="bqs-type">object </span> <span class="bqs-name">o1</span> <span class="bqs-operator">, </span> <span class="bqs-type">object </span> <span class="bqs-name">o2</span> <span class="bqs-operator">, </span> <span class="bqs-type">object </span> <span class="bqs-name">o3</span> <span class="bqs-operator">, </span> <span class="bqs-type">object </span> <span class="bqs-name">o4</span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">/// Создаёт кортеж из пяти элементов</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">independent </span><span class="bqs-name">System.Tuple</span><span class="bqs-operator"> &lt; </span><span class="bqs-type">object </span><span class="bqs-operator">, </span><span class="bqs-type">object </span><span class="bqs-operator">, </span><span class="bqs-type">object </span><span class="bqs-operator">, </span><span class="bqs-type">object </span><span class="bqs-operator">, </span><span class="bqs-type">object </span><span class="bqs-operator"> &gt; </span><span class="bqs-methodcall">Pack</span>(<span class="bqs-type">object </span> <span class="bqs-name">o1</span> <span class="bqs-operator">, </span> <span class="bqs-type">object </span> <span class="bqs-name">o2</span> <span class="bqs-operator">, </span> <span class="bqs-type">object </span> <span class="bqs-name">o3</span> <span class="bqs-operator">, </span> <span class="bqs-type">object </span> <span class="bqs-name">o4</span> <span class="bqs-operator">, </span> <span class="bqs-type">object </span> <span class="bqs-name">o5</span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">/// Создаёт кортеж из шести элементов</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">independent </span><span class="bqs-name">System.Tuple</span><span class="bqs-operator"> &lt; </span><span class="bqs-type">object </span><span class="bqs-operator">, </span><span class="bqs-type">object </span><span class="bqs-operator">, </span><span class="bqs-type">object </span><span class="bqs-operator">, </span><span class="bqs-type">object </span><span class="bqs-operator">, </span><span class="bqs-type">object </span><span class="bqs-operator">, </span><span class="bqs-type">object </span><span class="bqs-operator"> &gt; </span><span class="bqs-methodcall">Pack</span>(<span class="bqs-type">object </span> <span class="bqs-name">o1</span> <span class="bqs-operator">, </span> <span class="bqs-type">object </span> <span class="bqs-name">o2</span> <span class="bqs-operator">, </span> <span class="bqs-type">object </span> <span class="bqs-name">o3</span> <span class="bqs-operator">, </span> <span class="bqs-type">object </span> <span class="bqs-name">o4</span> <span class="bqs-operator">, </span> <span class="bqs-type">object </span> <span class="bqs-name">o5</span> <span class="bqs-operator">, </span> <span class="bqs-type">object </span> <span class="bqs-name">o6</span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">/// Создаёт кортеж из семи элементов</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">independent </span><span class="bqs-name">System.Tuple</span><span class="bqs-operator"> &lt; </span><span class="bqs-type">object </span><span class="bqs-operator">, </span><span class="bqs-type">object </span><span class="bqs-operator">, </span><span class="bqs-type">object </span><span class="bqs-operator">, </span><span class="bqs-type">object </span><span class="bqs-operator">, </span><span class="bqs-type">object </span><span class="bqs-operator">, </span><span class="bqs-type">object </span><span class="bqs-operator">, </span><span class="bqs-type">object </span><span class="bqs-operator"> &gt; </span><span class="bqs-methodcall">Pack</span>(<span class="bqs-type">object </span> <span class="bqs-name">o1</span> <span class="bqs-operator">, </span> <span class="bqs-type">object </span> <span class="bqs-name">o2</span> <span class="bqs-operator">, </span> <span class="bqs-type">object </span> <span class="bqs-name">o3</span> <span class="bqs-operator">, </span> <span class="bqs-type">object </span> <span class="bqs-name">o4</span> <span class="bqs-operator">, </span> <span class="bqs-type">object </span> <span class="bqs-name">o5</span> <span class="bqs-operator">, </span> <span class="bqs-type">object </span> <span class="bqs-name">o6</span> <span class="bqs-operator">, </span> <span class="bqs-type">object </span> <span class="bqs-name">o7</span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">/// Распаковывает элементы кортежа в lvalue лексемы.</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">void </span><span class="bqs-methodcall">Unpack</span>(<span class="bqs-name">System.Tuple</span> <span class="bqs-operator"> &lt; </span> <span class="bqs-type">object </span> <span class="bqs-operator"> &gt; </span> <span class="bqs-name">tuple</span> <span class="bqs-operator">, </span> <span class="bqs-type">lexem </span> <span class="bqs-name">nl1</span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">/// Распаковывает элементы кортежа в lvalue лексемы.</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">void </span><span class="bqs-methodcall">Unpack</span>(<span class="bqs-name">System.Tuple</span> <span class="bqs-operator"> &lt; </span> <span class="bqs-type">object </span> <span class="bqs-operator">, </span> <span class="bqs-type">object </span> <span class="bqs-operator"> &gt; </span> <span class="bqs-name">tuple</span> <span class="bqs-operator">, </span> <span class="bqs-type">lexem </span> <span class="bqs-name">nl1</span> <span class="bqs-operator">, </span> <span class="bqs-type">lexem </span> <span class="bqs-name">nl2</span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">/// Распаковывает элементы кортежа в lvalue лексемы.</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">void </span><span class="bqs-methodcall">Unpack</span>(<span class="bqs-name">System.Tuple</span> <span class="bqs-operator"> &lt; </span> <span class="bqs-type">object </span> <span class="bqs-operator">, </span> <span class="bqs-type">object </span> <span class="bqs-operator">, </span> <span class="bqs-type">object </span> <span class="bqs-operator"> &gt; </span> <span class="bqs-name">tuple</span> <span class="bqs-operator">, </span> <span class="bqs-type">lexem </span> <span class="bqs-name">nl1</span> <span class="bqs-operator">, </span> <span class="bqs-type">lexem </span> <span class="bqs-name">nl2</span> <span class="bqs-operator">, </span> <span class="bqs-type">lexem </span> <span class="bqs-name">nl3</span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">/// Распаковывает элементы кортежа в lvalue лексемы.</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">void </span><span class="bqs-methodcall">Unpack</span>(<span class="bqs-name">System.Tuple</span> <span class="bqs-operator"> &lt; </span> <span class="bqs-type">object </span> <span class="bqs-operator">, </span> <span class="bqs-type">object </span> <span class="bqs-operator">, </span> <span class="bqs-type">object </span> <span class="bqs-operator">, </span> <span class="bqs-type">object </span> <span class="bqs-operator"> &gt; </span> <span class="bqs-name">tuple</span> <span class="bqs-operator">, </span> <span class="bqs-type">lexem </span> <span class="bqs-name">nl1</span> <span class="bqs-operator">, </span> <span class="bqs-type">lexem </span> <span class="bqs-name">nl2</span> <span class="bqs-operator">, </span> <span class="bqs-type">lexem </span> <span class="bqs-name">nl3</span> <span class="bqs-operator">, </span> <span class="bqs-type">lexem </span> <span class="bqs-name">nl4</span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">/// Распаковывает элементы кортежа в lvalue лексемы.</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">void </span><span class="bqs-methodcall">Unpack</span>(<span class="bqs-name">System.Tuple</span> <span class="bqs-operator"> &lt; </span> <span class="bqs-type">object </span> <span class="bqs-operator">, </span> <span class="bqs-type">object </span> <span class="bqs-operator">, </span> <span class="bqs-type">object </span> <span class="bqs-operator">, </span> <span class="bqs-type">object </span> <span class="bqs-operator">, </span> <span class="bqs-type">object </span> <span class="bqs-operator"> &gt; </span> <span class="bqs-name">tuple</span> <span class="bqs-operator">, </span> <span class="bqs-type">lexem </span> <span class="bqs-name">nl1</span> <span class="bqs-operator">, </span> <span class="bqs-type">lexem </span> <span class="bqs-name">nl2</span> <span class="bqs-operator">, </span> <span class="bqs-type">lexem </span> <span class="bqs-name">nl3</span> <span class="bqs-operator">, </span> <span class="bqs-type">lexem </span> <span class="bqs-name">nl4</span> <span class="bqs-operator">, </span> <span class="bqs-type">lexem </span> <span class="bqs-name">nl5</span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">/// Распаковывает элементы кортежа в lvalue лексемы.</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">void </span><span class="bqs-methodcall">Unpack</span>(<span class="bqs-name">System.Tuple</span> <span class="bqs-operator"> &lt; </span> <span class="bqs-type">object </span> <span class="bqs-operator">, </span> <span class="bqs-type">object </span> <span class="bqs-operator">, </span> <span class="bqs-type">object </span> <span class="bqs-operator">, </span> <span class="bqs-type">object </span> <span class="bqs-operator">, </span> <span class="bqs-type">object </span> <span class="bqs-operator">, </span> <span class="bqs-type">object </span> <span class="bqs-operator"> &gt; </span> <span class="bqs-name">tuple</span> <span class="bqs-operator">, </span> <span class="bqs-type">lexem </span> <span class="bqs-name">nl1</span> <span class="bqs-operator">, </span> <span class="bqs-type">lexem </span> <span class="bqs-name">nl2</span> <span class="bqs-operator">, </span> <span class="bqs-type">lexem </span> <span class="bqs-name">nl3</span> <span class="bqs-operator">, </span> <span class="bqs-type">lexem </span> <span class="bqs-name">nl4</span> <span class="bqs-operator">, </span> <span class="bqs-type">lexem </span> <span class="bqs-name">nl5</span> <span class="bqs-operator">, </span> <span class="bqs-type">lexem </span> <span class="bqs-name">nl6</span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">/// Распаковывает элементы кортежа в lvalue лексемы.</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">void </span><span class="bqs-methodcall">Unpack</span>(<span class="bqs-name">System.Tuple</span> <span class="bqs-operator"> &lt; </span> <span class="bqs-type">object </span> <span class="bqs-operator">, </span> <span class="bqs-type">object </span> <span class="bqs-operator">, </span> <span class="bqs-type">object </span> <span class="bqs-operator">, </span> <span class="bqs-type">object </span> <span class="bqs-operator">, </span> <span class="bqs-type">object </span> <span class="bqs-operator">, </span> <span class="bqs-type">object </span> <span class="bqs-operator">, </span> <span class="bqs-type">object </span> <span class="bqs-operator"> &gt; </span> <span class="bqs-name">tuple</span> <span class="bqs-operator">, </span> <span class="bqs-type">lexem </span> <span class="bqs-name">nl1</span> <span class="bqs-operator">, </span> <span class="bqs-type">lexem </span> <span class="bqs-name">nl2</span> <span class="bqs-operator">, </span> <span class="bqs-type">lexem </span> <span class="bqs-name">nl3</span> <span class="bqs-operator">, </span> <span class="bqs-type">lexem </span> <span class="bqs-name">nl4</span> <span class="bqs-operator">, </span> <span class="bqs-type">lexem </span> <span class="bqs-name">nl5</span> <span class="bqs-operator">, </span> <span class="bqs-type">lexem </span> <span class="bqs-name">nl6</span> <span class="bqs-operator">, </span> <span class="bqs-type">lexem </span> <span class="bqs-name">nl7</span>)
+                    </li>
+                    <li class="bqs-line">
+                    <span class="bqs-operator">}</span>
+                    </li>
+                    <li class="bqs-line">
+                    <span class="bqs-keyword1">class </span><span class="bqs-specname">#BQS</span>
+                    </li>
+                    <li class="bqs-line">
+                    <span class="bqs-operator">{</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">/// Возвращает версию ревизии игры</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">independent </span><span class="bqs-type">int </span><span class="bqs-methodcall">GetVersion</span>()
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">/// Загружает внешнюю сборку в BQS</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">independent </span><span class="bqs-keyword1">void </span><span class="bqs-methodcall">LoadAssembly</span>(<span class="bqs-type">string </span> <span class="bqs-name">s</span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">/// Возвращает значение определяющее существование метода</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-type">bool </span><span class="bqs-methodcall">MethodAvailable</span>(<span class="bqs-type">string </span> <span class="bqs-name">methodname</span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">/// Запускает блок KTXCore исходя из текущего контекста</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">void </span><span class="bqs-methodcall">StartUI</span>(<span class="bqs-type">##KTXCore.Block </span> <span class="bqs-name">ui</span>)
+                    </li>
+                    <li class="bqs-line">
+                    <span class="bqs-operator">}</span>
+                    </li>
+                    <li class="bqs-line">
+                    <span class="bqs-keyword1">class </span><span class="bqs-specname">#Type</span>
+                    </li>
+                    <li class="bqs-line">
+                    <span class="bqs-operator">{</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">/// Возвращает тип с заданным именем</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">independent </span><span class="bqs-name">System.Type</span><span class="bqs-methodcall">Typeof</span>(<span class="bqs-type">string </span> <span class="bqs-name">name</span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">/// Загружает все типы из подключенных сборок в контекст выполнения</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">void </span><span class="bqs-methodcall">LoadAll</span>()
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">/// Загружает все типы из этого пространства имён в контекст выполнения</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">void </span><span class="bqs-methodcall">LoadAll</span>(<span class="bqs-type">string </span> <span class="bqs-name">ns</span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">/// Загружает тип в контекст выполнения, где он будет иметь имя name</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">void </span><span class="bqs-methodcall">LoadAs</span>(<span class="bqs-type">string </span> <span class="bqs-name">typename</span> <span class="bqs-operator">, </span> <span class="bqs-type">string </span> <span class="bqs-name">name</span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">/// Загружает тип в контекст выполнения, где он будет иметь имя name</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">void </span><span class="bqs-methodcall">LoadAs</span>(<span class="bqs-type">##System.Type </span> <span class="bqs-name">type</span> <span class="bqs-operator">, </span> <span class="bqs-type">string </span> <span class="bqs-name">name</span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">/// Загружает тип в контекст выполнения. Имена загруженных типов начинаются с #</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">void </span><span class="bqs-methodcall">Load</span>(<span class="bqs-type">string </span> <span class="bqs-name">typename</span>)
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">/// Загружает тип в контекст выполнения</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">void </span><span class="bqs-methodcall">Load</span>(<span class="bqs-type">##System.Type </span> <span class="bqs-name">type</span>)
+                    </li>
+                    <li class="bqs-line">
+                    <span class="bqs-operator">}</span>
+                    </li>
+                    <li class="bqs-line">
+                    <span class="bqs-keyword1">class </span><span class="bqs-specname">#Global</span>
+                    </li>
+                    <li class="bqs-line">
+                    <span class="bqs-operator">{</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-comment">/// Возвращает значение, определяющее статус обучения для новых игр</span>
+                    </li>
+                    <li class="bqs-line">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="bqs-keyword1">independent </span><span class="bqs-type">bool </span><span class="bqs-methodcall">TutorialEnabled</span>()
+                    </li>
+                    <li class="bqs-line">
+                    <span class="bqs-operator">}</span>
+                    </li>
+                    </ol></div>
+                    
+                    <span class="description"><a href="../docs/methodlist.bqs">RAW-версия списка методов</a></span>
+                </div>
+            <h2 id="arefs">Ссылки</h2>
+            <ul>
+                <li><a href="../docs/bqs_syntax.xml">Подсветка синтаксиса для Notepad++</a></li>
+            </ul>
+        </div>
+    </main>
+    <footer class="footinfo">
+        <div class="container">
+            <span><a class="footinfo-ref ref-github" href="https://github.com/AIexandrKotov/AIexandrKotov.github.io">github.com</a> Александр Котов 2022</span>
+        </div>
+    </footer>
+</body>
+</html>
