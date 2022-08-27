@@ -301,8 +301,13 @@ a:hover{
     font-size: 90%;
     padding: 1px;
 }
+.archive table.infobox tr a,
 .archive table.infobox tr b {
     display: inline;
+    padding: 0px;
+}
+.archive table.infobox tr th b{
+    color:#CC0066;
 }
 .archive table.infobox tr br {
     border: 1px solid #ff7aad;
