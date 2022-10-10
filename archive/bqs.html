@@ -25,9 +25,13 @@
                 <table class="infobox">
                     <tbody>
                         <tr class="maintitle"><th colspan="2">Biker Quest Script</th></tr>
-                        <!--tr class="image"><td colspan="2"><img class="no-borders" src="../img/ktx.png" alt="KTX"></td></tr>
-                        <tr class="description"><td colspan="2">Результат выполнения</td></tr-->
+                        <tr class="image"><td colspan="2"><img class="no-borders" src="../img/bqs.png" alt="bqs"></td></tr>
+                        <tr class="description"><td colspan="2">Фрагмент кода на BQS</td></tr>
                         <tr class="title"><th colspan="2">Разработка</th></tr>
+                        <tr>
+                            <th>Разработка</th>
+                            <td>с декабря 2021</td>
+                        </tr>
                         <tr>
                             <th>Написан на</th>
                             <td>C#</td>
@@ -43,18 +47,110 @@
                         </tr>
                     </tbody>
                 </table>
-                <p class="h1"><strong>Biker Quest Script</strong> &mdash; скриптовый язык квестов (и не только) в Biker 3. Синтаксис схож с C#, на котором и написан этот язык.
+                <p class="h1"><strong>Biker Quest Script</strong> &mdash; C-подобный императивный скриптовый язык квестов (и не только) в <a href="biker3.html">Biker 3</a>. Синтаксис очень близок к C#, что позволяет не учить целый ЯП.
                 <ol class="archive-nav">
                     <li class="archive-nav-h1">Навигация:</li>
-                    <li class="archive-nav-h2"><a href="#a0">Почему не Lua, Python и прочие</a></li>
+                    <li class="archive-nav-h2"><a href="#a0">Возможности и особенности</a></li>
+                    <li class="archive-nav-h2"><a href="#a01">Почему не Lua, Python и прочие</a></li>
+                    <li class="archive-nav-h2"><a href="#a02">Истоки разработки</a></li>
+                    <li class="archive-nav-h3"><a href="#a023">Возможности и фичи Biker Quest</a></li>
                     <li class="archive-nav-h2"><a href="#a1">Спецификация</a></li>
                     <li class="archive-nav-h2"><a href="#a2">Методы Biker 3</a></li>
                     <li class="archive-nav-h2"><a href="#arefs">Ссылки</a></li>
                 </ol>
-                <h2 id="a0">Почему не Lua, Python и прочие</h2>
-                <div class="h2">Ответ на самом деле прост &mdash; собственный язык позволяет создавать свои абстракции и свой сахар. Кроме того, BQS будучи привязанным к .NET, позволяет использовать методы Biker 3, которые можно писать непосредственно на C#, не плодя дополнительный код.</div>
+                <h2 id="a0">Возможности и особенности</h2>
+                <p class="h2"><strong>Ключевые:</strong></p>
+                <ul>
+                    <li><strong>Интерполированные строки</strong></li>
+                    <li><strong>Перегрузка методов</strong></li>
+                    <li><strong>Многочисленные квестовые абстракции</strong></li>
+                    <li><strong>Описание и вызов методов, которые могут принимать и возвращать любые типы</strong></li>
+                    <li>Вездесущность контекста и тесная связь с рефлексией</li>
+                    <li>Названия типов возвращают System.Type этого типа</li>
+                </ul>
+                <p class="h2">Синтаксические:</p>
+                <ul>
+                    <li><strong>Сахарная конструкция variant =&gt; </strong></li>
+                    <li>Широкий набор операций, в том числе тернарная операция и расширенное присваивание</li>
+                    <li>Определение массивов через new и инициализатор массива</li>
+                    <li>Возможность явного приведения типов</li>
+                    <li>Циклы while, do-while, loop и for.</li>
+                    <li>Все операции являются утверждениями</li>
+                    <li>Каждое утверждение должно быть написано с новой строки</li>
+                    <li>Необязательная ; в конце утверждений</li>
+                </ul>
+                <p class="h2">Прочие:</p>
+                <ul>
+                    <li>Использование внешних .NET-библиотек. Это полезно, но в то же время опасно</li>
+                    <li>Использование любых .NET-типов и их методов</li>
+                </ul>
+                <h2 id="a01">Почему не Lua, Python и прочие</h2>
+                <p class="h2">Ещё с Biker 2 у меня было желание разработать скриптовый язык, не порождая зависимости от уже существующих. Кроме того, собственный язык позволяет создавать свои абстракции и свой сахар. К тому же, BQS будучи привязанным к .NET, позволяет использовать методы Biker 3, которые можно писать непосредственно на C#, не плодя дополнительный код.</p>
+                <h2 id="a02">Истоки разработки</h2>
+                <p class="h2">Имя подсветки этого языка &mdash; bqs2. Это неспроста так, ведь до этого существовал язык Biker Quest (.bikerquest), имевший расширенный синтаксис моего старого проекта под названием Sunko, который был очередной попыткой создать свой скриптовый язык. В определённой мере он справлялся со своей задачей, но был слаборасширяем.</p>
+                <div class="textbox">
+                    <div class="bqs-code">
+                        <ol>
+                            <li>sunko</li>
+                            <li>&nbsp;&nbsp;&nbsp;&nbsp;string x = {gettype {gettype {sunkoversion}}}</li>
+                            <li>&nbsp;&nbsp;&nbsp;&nbsp;!write x</li>
+                            <li>end</li>
+                        </ol>
+                    </div>
+                    <span class="description">Пример кода на Sunko</span>
+                </div>
+                <p class="h2">Biker Quest был похож на Sunko внутренним представлением и синтаксисом. Методы также, как и в Sunko, могли создаваться только вручную в коде и вызывались с помощью синтаксиса {MethodName arg1 arg2}. Это легко парсить. Но, понятное дело, писать на нём было крайне неудобно (лично я за два года существования этого языка так к нему и не привык).</p>
+                <div class="textbox">
+                    <div class="bqs-code">
+                        <ol>
+                            <li>variant["0004", true] if ({money} >= QuestName.price)</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;setstage 2</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;setstage "QuestName" 2</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;REPUTATION = (REPUTATION + 1)</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;//declarations:</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;var x1: int64</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;var x2: int64 = start_date</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;var x3 = start_date</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;//assign:</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;x1 = 0</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;x2 += 1</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;x3 -= 1</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;if (true) then [setstage 1]</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;if (true) then [setstage 1] else [setstage 2]</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;if (true) then</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;begin</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;end</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;else</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;begin</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;end</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;while (true)</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;begin</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;end</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;begin</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;end</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;repeat until (true)</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;loop 100</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;end</li>
+<li>end. //Здесь end и end. это разные вещи</li>
+                        </ol>
+                    </div>
+                    <span class="description">Код на Biker Quest</span>
+                </div>
+                <div class="imagebox floatimage-right">
+                    <img class="borders" src="../img/bqs-oldfd.png" alt="choose"><span>Описания методов</span>
+                </div>
+                <h3 id="a023">Возможности и фичи Biker Quest (по сравнению с Sunko):</h3>
+                <ul>
+                    <li><strong>Include-шаблоны кода (template)</strong></li>
+                    <li>Слабочитаемый синтаксис квестовых абстракций (quest, text, stage, variant)</li>
+                    <li>Глобальные константы и переменные</li>
+                    <li>Однострочные условные конструкции</li>
+                    <li>Иной цикл for. Выглядел так: for [var x = 0] while (x &lt; 10) do [x += 1]</li>
+                    <li>Возможность вызывать описанные вручную в дереве методы. Описывать их было нереальной болью.</li>
+                </ul>
+                <p class="h2">Паскалеподобный синтаксис смешанный с костылями для упрощения парсинга делал из этого языка этакого франкенштейна. Кроме того, синтаксис был захламлён кучей специальных ключевых слов вроде "setstage". Последней же каплей для меня стало то, что контекст pastetemplate было невозможно восстановить вообще и в конце декабря 2021 я решил полностью переписать Biker Quest. Так появился Biker Quest Script.</p>
                 <h2 id="a1">Спецификация</h2>
-                <p class="h2"></p>
+                <p class="h2">Подсветка сгенерирована с помощью рефлексии по BQS-конструкциям. Такой код подходит только для поверхностного ознакомления. Для подробного изучения скачайте RAW-версию кода.</p>
                 <div class="textbox floatimage-after"><div class="bqs-code"><ol>
                     <li class="bqs-line">
                     <span class="bqs-comment">//Парсер языка однострочный. Одна строка - один оператор.</span>
@@ -666,6 +762,17 @@
                     <span class="description"><a href="../docs/specification.bqs">RAW-версия спецификации</a></span>
                     
                 </div>
+                <p class="h2">Хочу ещё добавить, что в спецификации описаны не все нюансы. К примеру, у перегрузки методов есть ограничения: будет выбран первый подходящий метод по порядку. То есть, если у нас есть, например, классы Item и BikeDetail : Item, и описать методы:</p>
+                <div class="textbox">
+                    <div class="bqs-code">
+                        <ol>
+                            <li>void p(##Gameplay.Items.Item item) => return;</li>
+                            <li>void p(##Gameplay.Items.BikeDetails.BikeDetail bd) => return;</li>
+                        </ol>
+                    </div>
+                </div>
+                <span class="h2">и попытаться вызвать p(bd) для BikeDetail, вызовется первый метод, так как он первее описан.</span>
+                <p class="h2">Ещё одно важное понятие &mdash; вызов экземплярных методов .NET-классов. В BQS нет объектов как таковых и все экземплярные методы могут быть вызваны только как статические с дополнительным первым аргументов. Например #Object.ToString(o); Если метод виртуальный и вы думаете какой конкретно класс использовать для вызова &mdash; используйте базовый.</p>
                 <h2 id="a2">Методы Biker 3</h2>
                 <div class="textbox"><div class="bqs-code"><ol>
                     <li class="bqs-line">

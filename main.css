@@ -1,6 +1,7 @@
 *{
     font-family: Arial, Helvetica, sans-serif;
     box-sizing: border-box;
+    line-height: 1.5em;
     margin: 0;
     padding: 0;
 }
@@ -76,7 +77,8 @@ main.container, main .container{
     display: block;
     margin: 7px auto;
 }
-.floatimage-right{
+.floatimage-right.floatimage-right.floatimage-right{
+    margin-left: 10px;
     float: right;
 }
 .floatimage-left{
@@ -152,6 +154,9 @@ a:hover{
 .archive ul{
     padding-left: 40px;
 }
+.archive ul li{
+    margin: 3px 0px;
+}
 
 .archive .table td {
     border: 1px solid #ff7aad;
@@ -175,7 +180,7 @@ a:hover{
     border: 1px solid #ff7aad;
     background-color: #ffeaf8;
     list-style-type: none;
-    margin: 3px;
+    margin: 10px 3px;
     overflow: hidden;
 }
 
@@ -199,7 +204,7 @@ a:hover{
 }
 
 /* BQS-CODE */
-.archive .bqs-code *{
+.archive .bqs-code *, .archive .lang-code{
     font-family: monospace;
     font-size: 14px;
 }
@@ -224,13 +229,13 @@ a:hover{
 .bqs-code .bqs-specmethodcall{
     color: #FF0080;
 }
-.bqs-code ol{
+.bqs-code ol, .lang-code ol{
     list-style-type: decimal;
     padding-left: 50px;
     display: block;
     background-color: #fff2fb;
 }
-.bqs-code li{
+.bqs-code li, .lang-code li{
     display: list-item;
     background-color: white;
     padding-left: 10px;
@@ -243,7 +248,6 @@ a:hover{
 
 .archive div.images div.imagebox{
     display: table-cell;
-    margin: 3px;
     height: min-content;
     width: 100%;
     flex: content;
@@ -258,7 +262,7 @@ a:hover{
     border: 1px solid #ff7aad;
     background-color: #ffeaf8;
     list-style-type: none;
-    margin: 3px;
+    margin: 10px 3px;
     overflow: hidden;
 }
 .archive div.imagebox img{
@@ -271,6 +275,7 @@ a:hover{
 .archive div.imagebox span{ /*--- TEXT UNDER ---*/
     display: block;
     font-size: 90%;
+    line-height: 1.2em;
     color: black;
     text-align: center;
     font-weight: bold;
@@ -383,6 +388,7 @@ h2.projects-head{
 .projects-cell h2{
     color:#CC0066;
     font-weight: bold;
+    line-height: 1em;
 }
 .projects-cell:hover{
     background-color: #ffeaf8;
@@ -433,10 +439,10 @@ img.projects-screens-3{
     .container{
         width: 100%;
     }
-    .archive table.infobox, .archive div.imagebox{
+    .archive table.infobox, .archive div.imagebox, .archive div.textbox{
         float: none;
         width: 100%;
-        margin: 0 auto;
+        margin: 10px auto;
     }
 }
 @media screen and (max-width: 980px) {
@@ -444,10 +450,10 @@ img.projects-screens-3{
         display: block;
         margin: 5px 0;
     }
-    .archive table.infobox, .archive div.imagebox{
+    .archive table.infobox, .archive div.imagebox, .archive div.textbox{
         float: none;
         width: 100%;
-        margin: 0 auto;
+        margin: 10px auto;
     }
     .container{
         width: 100%;
