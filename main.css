@@ -1,7 +1,6 @@
 *{
     font-family: Arial, Helvetica, sans-serif;
     box-sizing: border-box;
-    line-height: 1.5em;
     margin: 0;
     padding: 0;
 }
@@ -108,12 +107,15 @@ a:hover{
 }
 
 /*archive-wiki*/
+.archive *{
+    line-height: 1.5em;
+}
 .archive p{
     text-indent: 1em;
     margin-top: 5px;
     margin-bottom: 5px;
 }
-.archive h1, .archive h2, .archive h3{
+.archive h1, .archive h2, .archive h3, .archive span.h1, .archive span.h2, .archive span.h3{
     border-bottom: 1px solid #ff7aad;
     margin-top: 5px;
     margin-bottom: 10px;
@@ -283,6 +285,36 @@ a:hover{
 .archive div.imagebox.floatimage-after{
     margin: 0;
     margin-left: 5px;
+}
+
+.archive .manyelems .me-centeralign{
+    text-align: center;
+}
+.archive .manyelems table.infobox{
+    width: 100%;
+}
+.archive .manyelems .me-row{
+    display: flex;
+}
+.archive .manyelems .me-cell{
+    padding: 7px;
+    display: table-cell;
+}
+.archive .manyelems .me-head{
+    display: table-cell;
+    width: 100%;
+}
+.archive .me-cols-1{
+    width: 100%;
+}
+.archive .me-cols-2{
+    width: 50%;
+}
+.archive .me-cols-3{
+    width: 33.3%;
+}
+.archive .me-cols-4{
+    width: 25%;
 }
 
 .archive table.infobox {
@@ -458,10 +490,10 @@ img.projects-screens-3{
     .container{
         width: 100%;
     }
-    .projects-row{
+    .projects-row, .archive .manyelems .me-row{
         display: block;
     }
-    .projects-cell{
+    .projects-cell, .archive .manyelems .me-cell{
         display: block;
         width: 100%;
         padding: 7px 0px;
