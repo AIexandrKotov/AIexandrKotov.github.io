@@ -95,6 +95,7 @@ a{
     padding-left: 2px;
     padding-right: 2px;
 }
+
 a span{
     padding: 3px;
     display: block;
@@ -102,8 +103,14 @@ a span{
     font-weight: normal;
 }
 a:hover{
-    background-color: #CC0066;
+    background-color: #cc0066;
     color: white;
+    animation: a_hovercolors 1.1s infinite;
+}
+@keyframes a_hovercolors{
+    0%{ color: #cc0066; background-color: transparent; }
+    50%{ color: white; background-color: #cc0066; }
+    100%{ color: #cc0066; background-color: transparent }
 }
 
 /*archive-wiki*/
@@ -343,6 +350,9 @@ a:hover{
     display: inline;
     padding: 0px;
 }
+.archive table.infobox tr th{
+    vertical-align: top;
+}
 .archive table.infobox tr th b{
     color:#CC0066;
 }
@@ -377,13 +387,13 @@ a:hover{
 }
 .archive table.infobox tr.maintitle th{
     font-size: 120%;
-    background-color: #ff7aad;
+    background-color: #ff96bf;
     padding: 2px 0px;
     width: 100%;
     text-align: center;
 }
 .archive table.infobox tr.title th{
-    background-color: #ff7aad;
+    background-color: #ff96bf;
     padding: 1px;
     width: 100%;
     text-align: center;
@@ -424,6 +434,12 @@ h2.projects-head{
 }
 .projects-cell:hover{
     background-color: #ffeaf8;
+    animation: projc_colors 1s infinite;
+}
+@keyframes projc_colors{
+    0%{ background-color: transparent; }
+    50%{ color: white; background-color: #ffeaf8; }
+    100%{ background-color: transparent }
 }
 
 .projects-cols-1{
