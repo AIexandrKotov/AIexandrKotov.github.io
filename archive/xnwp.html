@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset='utf-8'>
+    <title>XNWP</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../main.css'>
+</head>
+<body>
+    <header>
+        <nav class="headmenu-nav">
+            <a href="../index.html"><img class="headmenu-image" src="../img/headlogo.png" alt="logo"/></a>
+            <ul class="headmenu-list">
+                <li><a href="../index.html">Главная</a></li>
+                <li><a href="../projects.html">Проекты</a></li>
+                <li><a href="archive.html">Архив</a></li>
+                <li><a href="../contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <div class="archive">
+            <h1>XNWP</h1>
+            <table class="infobox">
+                <tbody>
+                    <tr class="maintitle"><th colspan="2">XNWP</th></tr>
+                    <tr class="image"><td colspan="2"><img src="../img/xnwp.png" alt="XNWP"></td></tr>
+                    <tr class="description"><td colspan="2">Редактор персонажа</td></tr>
+                    <tr class="title"><th colspan="2">eXtended Notes</th></tr>
+                    <tr>
+                        <th>Предыдущая программа</th>
+                        <td><a href="tropegen.html">Tropegen</a></td>
+                    </tr>
+                    <tr class="title"><th colspan="2">Разработка</th></tr>
+                    <tr>
+                        <th>Статус</th>
+                        <td>Завершён</td>
+                    </tr>
+                    <tr>
+                        <th>Разработка</th>
+                        <td>13.10.22 &mdash; 19.04.23</td>
+                    </tr>
+                    <tr><th></th><td>Активная: 10.04.23 &mdash; 19.04.23</td>
+                    <tr>
+                        <th>Последняя версия</th>
+                        <td>1.0 от 19.04.23</td>
+                    </tr>
+                    <tr>
+                        <th>Написан на</th>
+                        <td>Python 3.11 (kivymd 2.1.0)</td>
+                    </tr>
+                    <tr>
+                        <th>Инструменты</th>
+                        <td>GitHub Actions, Visual Studio Code, python: [pydantic, flake8, mypy, black]</td>
+                    </tr>
+                    <tr>
+                        <th>Платформы</th>
+                        <td>Windows, Linux, Android</td>
+                    </tr>
+                    <tr class="title"><th colspan="2">Статистика</th></tr>
+                    <tr>
+                        <th>Строк кода</th>
+                        <td>.py: 4207</td>
+                    </tr>
+                    <tr><th></th><td>.json: 1386</td>
+                    <tr>
+                        <th>Коммитов</th>
+                        <td>41</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="h1"><strong>XNWP</strong> &mdash; редактор персонажей для мобильных устройств. Попытка сделать продолжение Tropegen'а с уходом в сторону повышенной кастомизируемости. Основная логика XNWP проста до банальности и умещается в <a href="https://github.com/AIexandrKotov/XNWP/blob/master/logic.py">60 питонячьих строчек</a>.</p>
+            <ol class="archive-nav">
+                <li class="archive-nav-h1">Навигация:</li>
+                <li class="archive-nav-h2"><a href="#a0">Абстракции</a></li>
+                <li class="archive-nav-h3"><a href="#a01">Свойства</a></li>
+                <li class="archive-nav-h3"><a href="#a02">Генераторы</a></li>
+                <li class="archive-nav-h3"><a href="#a03">Персонажи</a></li>
+                <li class="archive-nav-h2"><a href="#a1">Сравнение с Tropegen</a></li>
+                <li class="archive-nav-h2"><a href="#arefs">Ссылки</a></li>
+            </ol>
+            <h2 id="a0">Абстракции</h2>
+            <h3 id="a01">Свойства</h3>
+            <p class="h3 ">Свойства &mdash; кирпичики для создания персонажей. Базовые свойства для удобства разделены по группам. Каждое свойство хранит следующие данные: имя свойства, значение свойства, иконка, выбранный генератор и его аргументы.</p>
+            <div class="images">
+                <div class="imagebox"><img src="../img/xnwp-property.png" alt="screen"><span>Окно редактирования свойства</span></div>
+            </div>
+            <h3 id="a02">Генераторы</h3>
+            <p class="h3 ">Генераторы &mdash; упрощение Tropegen'овых законов рандомизации. Основная их задача &mdash; выдать какое-то значение. В XNWP реализовано 5 генераторов:</p>
+            <ul>
+                <li><strong>Число: Случайное число в диапазоне</strong><br/>Примеры: возраст и зарплата персонажа</li>
+                <li><strong>Выбор: Случайное значение из списка</strong><br/>Примеры: цвет глаз или волос</li>
+                <li><strong><a href="otherprojects.html#ranamer">Raname</a>: Случайное значение на основе списка</strong><br/>Помогает создавать абсолютно новые слова, смешивая слова из списка<br/>Также используется чисто поржать</li>
+                <li>+ версии Выбора и Raname, использующие вместо списка любую из встроенных баз данных.</li>
+            </ul>
+            <div class="images">
+                <div class="imagebox"><img src="../img/xnwp-gen-choose.png" alt="screen"><span>Выбор другого генератора</span></div>
+                <div class="imagebox"><img src="../img/xnwp-gen-settings.png" alt="screen"><span>Настройки генератора свойства "Политические взгляды"</span></div>
+            </div>
+            <h3 id="a03">Персонажи</h3>
+            <p class="h3">Персонажи &mdash; контейнеры для свойств. На самом деле в них можно представлять вообще любые сущности. При создании нового персонажа на основе шаблонного, все характеристики, имеющие генераторы, заполнятся новыми случайными значениями. Свойства персонажа разделяются на те же группы, на которые разделялся шаблон.</p>
+            <div class="images">
+                <div class="imagebox"><img src="../img/xnwp-person.png" alt="screen"><span>Окно редактирования персонажа</span></div>
+            </div>
+            <h2 id="a1">Сравнение с Tropegen</h2>
+            <table class="table tablemaxwidth">
+                <tbody>
+                    <tr>
+                        <th width="50%">Tropegen</th>
+                        <th>XNWP</th>
+                    </tr>
+                    <tr><th colspan="2">Язык программирования, фреймворк и фактически-поддерживаемые платформы</th></tr>
+                    <tr>
+                        <td>C# 7.3 (Windows Forms)</td>
+                        <td>Python 3.11 (kivymd)</td>
+                    </tr>
+                    <tr>
+                        <td>Windows</td>
+                        <td>Android</td>
+                    </tr>
+                    <tr><th colspan="2">Время запуска и остановки на целевой платформе</th></tr>
+                    <tr>
+                        <td>&lt; 0.5 с</td>
+                        <td>&gt; 8 с</td>
+                    </tr>
+                    <tr>
+                        <td>&lt; 0.1 с</td>
+                        <td>&gt; 5 с<br/>если не дождаться и закрыть приложение раньше, то повредится .json файл</td>
+                    </tr>
+                    <tr><th colspan="2">Формат кастомизации, сериализации и размер элементов</th></tr>
+                    <tr>
+                        <td>.xml</td>
+                        <td>.json</td>
+                    </tr>
+                    <tr>
+                        <td>.tgc (own binary)</td>
+                        <td>.json</td>
+                    </tr>
+                    <tr>
+                        <td>~ 160 байт</td>
+                        <td>~ 24 Кбайт</td>
+                    </tr>
+                    <tr><th colspan="2">Возможности переноса</th></tr>
+                    <tr>
+                        <td><ul>
+                            <li>Свободное управление файлами каталога на Windows: перенос списков персонажей</li>
+                        </ul></td>
+                        <td><ul>
+                            <li>Свободное управление файлами каталога на Windows: перенос user_db баз данных и профилей с списками персонажей</li>
+                            <li>Изменения сохраняются, но перенос с Android-устройства невозможен</li>
+                        </ul></td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>Ссылки</h2>
+            <ul>
+                <li><a href="https://github.com/AIexandrKotov/XNWP/releases/download/1.0/xnwp-1.0-arm64-v8a_armeabi-v7a-debug.apk">Скачать для Android</a></li>
+                <li><a href="https://github.com/AIexandrKotov/XNWP">Исходный код</a></li>
+            </ul>
+        </div>
+    </main>
+    <footer class="footinfo">
+        <div class="container">
+            <span><a class="footinfo-ref ref-github" href="https://github.com/AIexandrKotov/AIexandrKotov.github.io">github.com</a> Александр Котов 2022</span>
+        </div>
+    </footer>
+</body>
+</html>

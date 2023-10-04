@@ -167,21 +167,25 @@ a:hover{
     margin: 3px 0px;
 }
 
+.archive .tablemaxwidth {
+    width: 100%;
+}
 .archive .table td {
     border: 1px solid #ff7aad;
     border-collapse: collapse;
-    padding: 3px;
+    padding: 3px 5px;
 }
 .archive .table th {
     background-color: #ffeaf8;
+    color: #cc0066;
     border: 1px solid #ff7aad;
     border-collapse: collapse;
-    padding: 3px;
+    padding: 3px 10px;
 }
 .archive .table {
     border: 1px solid #ff7aad;
     border-collapse: collapse;
-    padding: 3px;
+    padding: 3px 5px;
 }
 
 .archive div.textbox {
@@ -418,6 +422,10 @@ a:hover{
 .franchise-biker3{
     color: white;
     background: rgb(255, 75, 75);
+}
+.franchise-exnotes{
+    color: white;
+    background: rgb(103, 58, 183);
 }
 .franchise-others{
     color: white;
