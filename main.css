@@ -113,6 +113,32 @@ a:hover{
     100%{ color: #cc0066; background-color: transparent }
 }
 
+/*index*/
+.index h2.index-head{
+    font-weight: bold;
+}
+.index .index-cell h2{
+    color:#CC0066;
+    font-weight: bold;
+    line-height: 1em;
+}
+.index .index-main{
+    width: 80%;
+    text-align: center;
+}
+.index .index-updates{
+    width: 20%;
+    padding-left: 10px;
+    margin-left: 10px;
+    border-left: #ff7aad solid 1px;
+}
+.index .index-updates li{
+    list-style-position: inside;
+}
+.index-row{
+    display: flex;
+}
+
 /*archive-wiki*/
 .archive *{
     line-height: 1.5em;
@@ -177,7 +203,7 @@ a:hover{
 }
 .archive .table th {
     background-color: #ffeaf8;
-    color: #cc0066;
+    /*color: #cc0066;*/
     border: 1px solid #ff7aad;
     border-collapse: collapse;
     padding: 3px 10px;
@@ -354,8 +380,11 @@ a:hover{
     display: inline;
     padding: 0px;
 }
-.archive table.infobox tr th{
+.archive table.infobox tr th {
     vertical-align: top;
+}
+.archive table.infobox tr th.middle {
+    vertical-align: inherit;
 }
 .archive table.infobox tr th b{
     color:#CC0066;
@@ -402,6 +431,11 @@ a:hover{
     width: 100%;
     text-align: center;
 }
+.archive table.infobox tr.franchise th{
+    padding: 1px;
+    width: 100%;
+    text-align: center;
+}
 
 /*project*/
 .projects-row{
@@ -419,17 +453,21 @@ a:hover{
     width: 100%;
 }
 
-.franchise-biker3{
+.franchise-biker3, .archive table.infobox tr th.franchise-biker3{
     color: white;
     background: rgb(255, 75, 75);
 }
-.franchise-exnotes{
+.franchise-exnotes, .archive table.infobox tr th.franchise-exnotes{
     color: white;
     background: rgb(103, 58, 183);
 }
-.franchise-others{
+.franchise-others, .archive table.infobox tr th.franchise-others{
     color: white;
     background: rgb(75, 75, 255);
+}
+.franchise-langs, .archive table.infobox tr th.franchise-langs{
+    color: black;
+    background: rgb(100, 255, 177);
 }
 
 h2.projects-head{
@@ -502,6 +540,23 @@ img.projects-screens-3{
     }
 }
 @media screen and (max-width: 980px) {
+    .index .index-cell, .index, .index-row{
+        display: block;
+    }
+    .index .index-main, .index .index-updates{
+        width: 100%;
+    }
+    .index .index-updates{
+        padding-left: 0px;
+        margin-left: 0px;
+        border-left: 0px;
+        padding-top: 10px;
+        margin-top: 10px;
+        border-top: #ff7aad solid 1px;
+    }
+    .index img{
+        width: 80%;
+    }
     .archive div.images, .archive div.images div.imagebox{
         display: block;
         margin: 5px 0;
