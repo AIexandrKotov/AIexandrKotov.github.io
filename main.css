@@ -465,9 +465,13 @@ a:hover{
     color: white;
     background: rgb(75, 75, 255);
 }
+.franchise-gr, .archive table.infobox tr th.franchise-others{
+    color: black;
+    background: #ff96bf;
+}
 .franchise-langs, .archive table.infobox tr th.franchise-langs{
     color: black;
-    background: rgb(100, 255, 177);
+    background: aqua;
 }
 
 h2.projects-head{
