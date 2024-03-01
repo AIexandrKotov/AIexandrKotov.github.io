@@ -1,0 +1,44 @@
+.index h2.index-head{
+    font-weight: bold;
+}
+.index .index-cell h2{
+    color:#CC0066;
+    font-weight: bold;
+    line-height: 1em;
+}
+.index .index-main{
+    width: 80%;
+    text-align: center;
+}
+.index .index-updates{
+    width: 20%;
+    padding-left: 10px;
+    margin-left: 10px;
+    border-left: #ff7aad solid 1px;
+}
+.index .index-updates li{
+    list-style-position: inside;
+}
+.index-row{
+    display: flex;
+}
+
+@media screen and (max-width: 980px) {
+    .index .index-cell, .index, .index-row{
+        display: block;
+    }
+    .index .index-main, .index .index-updates{
+        width: 100%;
+    }
+    .index .index-updates{
+        padding-left: 0px;
+        margin-left: 0px;
+        border-left: 0px;
+        padding-top: 10px;
+        margin-top: 10px;
+        border-top: #ff7aad solid 1px;
+    }
+    .index img{
+        width: 80%;
+    }
+}

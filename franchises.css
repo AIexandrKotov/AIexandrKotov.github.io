@@ -1,0 +1,20 @@
+.franchise-biker3, .archive table.infobox tr th.franchise-biker3{
+    color: white;
+    background: rgb(255, 75, 75);
+}
+.franchise-exnotes, .archive table.infobox tr th.franchise-exnotes{
+    color: white;
+    background: rgb(103, 58, 183);
+}
+.franchise-others, .archive table.infobox tr th.franchise-others{
+    color: white;
+    background: rgb(75, 75, 255);
+}
+.franchise-gr, .archive table.infobox tr th.franchise-others{
+    color: black;
+    background: #ff96bf;
+}
+.franchise-langs, .archive table.infobox tr th.franchise-langs{
+    color: black;
+    background: aqua;
+}

@@ -1,0 +1,36 @@
+.archive .bqs-code *, .archive .lang-code{
+    font-family: monospace;
+    font-size: 14px;
+}
+.bqs-code .bqs-comment{
+    color: #808080;
+}
+.bqs-code .bqs-digit{
+    color: #008000;
+}
+.bqs-code .bqs-keyword1, .bqs-code .bqs-bool, .bqs-code .bqs-type{
+    color: #0000FF;
+}
+.bqs-code .bqs-specname{
+    color: #008080;
+}
+.bqs-code .bqs-keyword2{
+    color: #800080;
+}
+.bqs-code .bqs-string{
+    color: #C10000;
+}
+.bqs-code .bqs-specmethodcall{
+    color: #FF0080;
+}
+.bqs-code ol, .lang-code ol{
+    list-style-type: decimal;
+    padding-left: 50px;
+    display: block;
+    background-color: #fff2fb;
+}
+.bqs-code li, .lang-code li{
+    display: list-item;
+    background-color: white;
+    padding-left: 10px;
+}
