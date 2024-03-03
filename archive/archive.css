@@ -7,7 +7,7 @@
     margin-bottom: 5px;
 }
 .archive h1, .archive h2, .archive h3, .archive span.h1, .archive span.h2, .archive span.h3{
-    border-bottom: 1px solid #ff7aad;
+    border-bottom: 1px solid var(--ext-color-1);
     margin-top: 5px;
     margin-bottom: 10px;
     text-indent: 10px;
@@ -20,8 +20,8 @@
     margin: 15px;
     width: fit-content;
     padding: 5px 10px;
-    border: 1px solid #ff7aad;
-    background-color: #ffeaf8;
+    border: 1px solid var(--ext-color-1);
+    background-color: var(--ext-color-4);
     list-style-type: none;
 }
 .archive .archive-nav-h1{
@@ -55,27 +55,27 @@
     width: 100%;
 }
 .archive .table td {
-    border: 1px solid #ff7aad;
+    border: 1px solid var(--ext-color-1);
     border-collapse: collapse;
     padding: 3px 5px;
 }
 .archive .table th {
-    background-color: #ffeaf8;
-    /*color: #cc0066;*/
-    border: 1px solid #ff7aad;
+    background-color: var(--ext-color-4);
+    /*color: var(--main-color-kotov);*/
+    border: 1px solid var(--ext-color-1);
     border-collapse: collapse;
     padding: 3px 10px;
 }
 .archive .table {
-    border: 1px solid #ff7aad;
+    border: 1px solid var(--ext-color-1);
     border-collapse: collapse;
     padding: 3px 5px;
 }
 
 .archive div.textbox {
     padding: 5px;
-    border: 1px solid #ff7aad;
-    background-color: #ffeaf8;
+    border: 1px solid var(--ext-color-1);
+    background-color: var(--ext-color-4);
     list-style-type: none;
     margin: 10px 3px;
     overflow: hidden;
@@ -85,7 +85,7 @@
     display: block;
     font-size: 90%;
     background-color: white;
-    border: 1px solid #ff7aad;
+    border: 1px solid var(--ext-color-1);
     padding: 5px;
     margin: 0px;
     margin-bottom: 3px;
@@ -117,15 +117,15 @@
 .archive div.imagebox {
     width: 23em;
     padding: 5px;
-    border: 1px solid #ff7aad;
-    background-color: #ffeaf8;
+    border: 1px solid var(--ext-color-1);
+    background-color: var(--ext-color-4);
     list-style-type: none;
     margin: 10px 3px;
     overflow: hidden;
 }
 .archive div.imagebox img{
     width: 100%;
-    border: 1px solid #ff7aad;
+    border: 1px solid var(--ext-color-1);
 }
 .archive div.imagebox img.no-borders{
     border: 0px none black;
@@ -177,8 +177,8 @@
     margin-bottom: 10px;
     margin-left: 10px;
     padding: 5px 3px;
-    border: 1px solid #ff7aad;
-    background-color: #ffeaf8;
+    border: 1px solid var(--ext-color-1);
+    background-color: var(--ext-color-4);
     list-style-type: none;
     text-align: left;
     float: right;
@@ -206,10 +206,10 @@
     vertical-align: inherit;
 }
 .archive table.infobox tr th b{
-    color:#CC0066;
+    color: var(--MAIN-COLOR-KOTOV);
 }
 .archive table.infobox tr br {
-    border: 1px solid #ff7aad;
+    border: 1px solid var(--ext-color-1);
     margin: 5px 0;
 }
 .archive table.infobox tr.description { /*--- TEXT UNDER ---*/
@@ -231,7 +231,7 @@
     width: 100%;
     margin: 0 auto;
     margin-top: 3px;
-    border: 1px solid #ff7aad;
+    border: 1px solid var(--ext-color-1);
     padding: 0px;
 }
 .archive table.infobox tr.image img.no-borders{
@@ -239,13 +239,13 @@
 }
 .archive table.infobox tr.maintitle th{
     font-size: 120%;
-    background-color: #ff96bf;
+    background-color: var(--ext-color-2);
     padding: 2px 0px;
     width: 100%;
     text-align: center;
 }
 .archive table.infobox tr.title th{
-    background-color: #ff96bf;
+    background-color: var(--ext-color-2);
     padding: 1px;
     width: 100%;
     text-align: center;

@@ -17,7 +17,7 @@ h2.projects-head{
     font-weight: bold;
 }
 .projects-cell h2{
-    color:#CC0066;
+    color: var(--main-color-kotov);
     font-weight: bold;
     line-height: 1em;
 }
